@@ -544,18 +544,7 @@
           <label for="cv_email">Email Address <span class="req">*</span></label>
           <input type="email" id="cv_email" name="Email Address" placeholder="you@example.com" required />
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="cv_sector">Sector <span class="req">*</span></label>
-            <select id="cv_sector" name="Sector" required>
-              <option value="">Select sector</option>
-              <option>Tech &amp; Digital</option>
-              <option>Financial Services</option>
-              <option>FMCG</option>
-              <option>Healthcare</option>
-            </select>
-          </div>
-          <div class="form-group">
+        <div class="form-group">
             <label for="cv_experience">Years of Experience <span class="req">*</span></label>
             <select id="cv_experience" name="Experience Level" required>
               <option value="">Select level</option>
@@ -564,7 +553,6 @@
               <option>6–9 years (Senior)</option>
               <option>10+ years (Lead / Director)</option>
             </select>
-          </div>
         </div>
         <div class="form-group">
           <label for="cv_role">Current or Target Role <span class="req">*</span></label>
@@ -615,27 +603,15 @@
           <label for="e_email">Work Email <span class="req">*</span></label>
           <input type="email" id="e_email" placeholder="you@company.com" required />
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="e_sector">Sector <span class="req">*</span></label>
-            <select id="e_sector" required>
-              <option value="">Select sector</option>
-              <option>Tech &amp; Digital</option>
-              <option>Financial Services</option>
-              <option>FMCG</option>
-              <option>Healthcare</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="e_type">Employment Type</label>
-            <select id="e_type">
-              <option value="">Select type</option>
-              <option>Full-time (Permanent)</option>
-              <option>Contract</option>
-              <option>Contract-to-Perm</option>
-              <option>Part-time</option>
-            </select>
-          </div>
+        <div class="form-group">
+          <label for="e_type">Employment Type</label>
+          <select id="e_type">
+            <option value="">Select type</option>
+            <option>Full-time (Permanent)</option>
+            <option>Contract</option>
+            <option>Contract-to-Perm</option>
+            <option>Part-time</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="e_role">Role Title <span class="req">*</span></label>
@@ -797,7 +773,6 @@
     const name    = document.getElementById('e_name').value.trim();
     const company = document.getElementById('e_company').value.trim();
     const email   = document.getElementById('e_email').value.trim();
-    const sector  = document.getElementById('e_sector').value;
     const type    = document.getElementById('e_type').value;
     const role    = document.getElementById('e_role').value.trim();
     const brief   = document.getElementById('e_brief').value.trim();
@@ -808,7 +783,7 @@
     errEl.style.display = 'none';
     sucEl.style.display = 'none';
 
-    if (!name || !company || !email || !sector || !role) {
+    if (!name || !company || !email || !role) {
       errEl.textContent = 'Please fill in all required fields.';
       errEl.style.display = 'block'; return;
     }
@@ -827,7 +802,6 @@
     data.append('Contact Name',      name);
     data.append('Company',           company);
     data.append('Email',             email);
-    data.append('Sector',            sector);
     data.append('Employment Type',   type || 'Not specified');
     data.append('Role',              role);
     data.append('Brief',             brief || 'Not provided');
