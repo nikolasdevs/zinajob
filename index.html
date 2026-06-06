@@ -525,7 +525,11 @@
     <div class="form-card">
       <h3>Submit Your CV</h3>
       <p>Complete the form below. We review every submission personally.</p>
-      <form id="cvForm" novalidate>
+      <form id="cvForm" action="https://formsubmit.co/info@zinajob.com" method="POST" enctype="multipart/form-data" novalidate>
+        <input type="hidden" name="_subject" value="New CV Submission — ZinaJob">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://zinajob.com/?cv=sent#candidates">
         <div class="form-row">
           <div class="form-group">
             <label for="cv_name">Full Name <span class="req">*</span></label>
@@ -569,7 +573,7 @@
         <div class="form-group">
           <label>Upload CV <span class="req">*</span></label>
           <div class="file-zone" id="fileZone">
-            <input type="file" id="cv_file" accept=".pdf,.doc,.docx" />
+            <input type="file" id="cv_file" name="cv_attachment" accept=".pdf,.doc,.docx" />
             <div class="file-icon">📄</div>
             <strong>Click to upload or drag &amp; drop</strong>
             <p>PDF or Word document only</p>
@@ -735,8 +739,19 @@
   fileZone.addEventListener('dragleave', ()  => fileZone.classList.remove('drag'));
   fileZone.addEventListener('drop',      e  => { e.preventDefault(); fileZone.classList.remove('drag'); });
 
-  // ── CV form submission (Formsubmit.co — handles file attachments) ──
-  document.getElementById('cvForm').addEventListener('submit', async function(e) {
+  // ── Show CV success message if redirected back after submission ──
+  if (new URLSearchParams(window.location.search).get('cv') === 'sent') {
+    window.addEventListener('DOMContentLoaded', () => {
+      const sucEl = document.getElementById('cvSuccess');
+      if (sucEl) {
+        sucEl.style.display = 'block';
+        document.getElementById('candidates').scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
+  // ── CV form — validate then submit natively to Formsubmit ────
+  document.getElementById('cvForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const name       = document.getElementById('cv_name').value.trim();
     const email      = document.getElementById('cv_email').value.trim();
@@ -747,10 +762,8 @@
     const file       = document.getElementById('cv_file').files[0];
     const consent    = document.getElementById('cv_consent').checked;
     const errEl      = document.getElementById('cvError');
-    const sucEl      = document.getElementById('cvSuccess');
 
     errEl.style.display = 'none';
-    sucEl.style.display = 'none';
 
     if (!name || !email || !phone || !sector || !experience || !role) {
       errEl.textContent = 'Please fill in all required fields.';
@@ -769,42 +782,13 @@
       errEl.style.display = 'block'; return;
     }
 
+    // All valid — update subject with role details then submit natively
+    const subjectField = this.querySelector('input[name="_subject"]');
+    subjectField.value = `New CV Submission — ${role} (${sector})`;
+
     const btn = this.querySelector('button[type="submit"]');
     btn.textContent = 'Submitting…'; btn.disabled = true;
-
-    const data = new FormData();
-    data.append('_subject',      `New CV Submission — ${role} (${sector})`);
-    data.append('_captcha',      'false');
-    data.append('_template',     'table');
-    data.append('Name',          name);
-    data.append('Email',         email);
-    data.append('Phone',         phone);
-    data.append('Sector',        sector);
-    data.append('Experience',    experience);
-    data.append('Role',          role);
-    data.append('attachment',    file, file.name);
-
-    try {
-      const res  = await fetch('https://formsubmit.co/ajax/info@zinajob.com', {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-      const json = await res.json();
-      if (json.success === 'true' || json.success === true) {
-        sucEl.style.display = 'block';
-        this.reset();
-        fileInfo.textContent = 'Maximum file size: 2MB';
-        fileInfo.className   = 'file-info';
-      } else {
-        throw new Error(json.message || 'Submission failed');
-      }
-    } catch (err) {
-      errEl.textContent = 'Something went wrong. Please email your CV directly to info@zinajob.com.';
-      errEl.style.display = 'block';
-    } finally {
-      btn.textContent = 'Submit My CV →'; btn.disabled = false;
-    }
+    this.submit();
   });
 
   // ── Employer form submission ──────────────────────────────────
