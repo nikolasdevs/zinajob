@@ -735,7 +735,7 @@
   fileZone.addEventListener('dragleave', ()  => fileZone.classList.remove('drag'));
   fileZone.addEventListener('drop',      e  => { e.preventDefault(); fileZone.classList.remove('drag'); });
 
-  // ── CV form submission ────────────────────────────────────────
+  // ── CV form submission (Formsubmit.co — handles file attachments) ──
   document.getElementById('cvForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const name       = document.getElementById('cv_name').value.trim();
@@ -773,21 +773,25 @@
     btn.textContent = 'Submitting…'; btn.disabled = true;
 
     const data = new FormData();
-    data.append('access_key', W3F_KEY);
-    data.append('subject',    `New CV Submission — ${role} (${sector})`);
-    data.append('from_name',  'ZinaJob CV Form');
-    data.append('Name',       name);
-    data.append('Email',      email);
-    data.append('Phone',      phone);
-    data.append('Sector',     sector);
-    data.append('Experience', experience);
-    data.append('Role',       role);
-    data.append('attachment', file, file.name);
+    data.append('_subject',      `New CV Submission — ${role} (${sector})`);
+    data.append('_captcha',      'false');
+    data.append('_template',     'table');
+    data.append('Name',          name);
+    data.append('Email',         email);
+    data.append('Phone',         phone);
+    data.append('Sector',        sector);
+    data.append('Experience',    experience);
+    data.append('Role',          role);
+    data.append('attachment',    file, file.name);
 
     try {
-      const res  = await fetch(W3F_URL, { method: 'POST', body: data });
+      const res  = await fetch('https://formsubmit.co/ajax/info@zinajob.com', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
       const json = await res.json();
-      if (json.success) {
+      if (json.success === 'true' || json.success === true) {
         sucEl.style.display = 'block';
         this.reset();
         fileInfo.textContent = 'Maximum file size: 2MB';
