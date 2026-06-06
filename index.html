@@ -709,11 +709,14 @@
 </footer>
 
 <script>
-  // File upload handling
+  const W3F_KEY = 'ec4ad484-d46a-4657-9067-b3c734a13e11';
+  const W3F_URL = 'https://api.web3forms.com/submit';
+
+  // ── File upload handling ──────────────────────────────────────
   const fileInput = document.getElementById('cv_file');
-  const fileInfo = document.getElementById('fileInfo');
-  const fileZone = document.getElementById('fileZone');
-  const MAX_SIZE = 2 * 1024 * 1024; // 2MB
+  const fileInfo  = document.getElementById('fileInfo');
+  const fileZone  = document.getElementById('fileZone');
+  const MAX_SIZE  = 2 * 1024 * 1024; // 2MB
 
   fileInput.addEventListener('change', () => {
     const file = fileInput.files[0];
@@ -728,25 +731,26 @@
     }
   });
 
-  // Drag and drop visual
-  fileZone.addEventListener('dragover', e => { e.preventDefault(); fileZone.classList.add('drag'); });
-  fileZone.addEventListener('dragleave', () => fileZone.classList.remove('drag'));
-  fileZone.addEventListener('drop', e => { e.preventDefault(); fileZone.classList.remove('drag'); });
+  fileZone.addEventListener('dragover',  e => { e.preventDefault(); fileZone.classList.add('drag'); });
+  fileZone.addEventListener('dragleave', ()  => fileZone.classList.remove('drag'));
+  fileZone.addEventListener('drop',      e  => { e.preventDefault(); fileZone.classList.remove('drag'); });
 
-  // CV form submission
-  document.getElementById('cvForm').addEventListener('submit', function(e) {
+  // ── CV form submission ────────────────────────────────────────
+  document.getElementById('cvForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    const name = document.getElementById('cv_name').value.trim();
-    const email = document.getElementById('cv_email').value.trim();
-    const phone = document.getElementById('cv_phone').value.trim();
-    const sector = document.getElementById('cv_sector').value;
+    const name       = document.getElementById('cv_name').value.trim();
+    const email      = document.getElementById('cv_email').value.trim();
+    const phone      = document.getElementById('cv_phone').value.trim();
+    const sector     = document.getElementById('cv_sector').value;
     const experience = document.getElementById('cv_experience').value;
-    const role = document.getElementById('cv_role').value.trim();
-    const file = document.getElementById('cv_file').files[0];
-    const consent = document.getElementById('cv_consent').checked;
-    const errEl = document.getElementById('cvError');
+    const role       = document.getElementById('cv_role').value.trim();
+    const file       = document.getElementById('cv_file').files[0];
+    const consent    = document.getElementById('cv_consent').checked;
+    const errEl      = document.getElementById('cvError');
+    const sucEl      = document.getElementById('cvSuccess');
 
     errEl.style.display = 'none';
+    sucEl.style.display = 'none';
 
     if (!name || !email || !phone || !sector || !experience || !role) {
       errEl.textContent = 'Please fill in all required fields.';
@@ -757,7 +761,7 @@
       errEl.style.display = 'block'; return;
     }
     if (file.size > MAX_SIZE) {
-      errEl.textContent = `CV file exceeds 2MB limit. Please compress or re-export your CV.`;
+      errEl.textContent = 'CV file exceeds 2MB. Please compress or re-export and try again.';
       errEl.style.display = 'block'; return;
     }
     if (!consent) {
@@ -765,30 +769,56 @@
       errEl.style.display = 'block'; return;
     }
 
-    // Simulate submission
     const btn = this.querySelector('button[type="submit"]');
-    btn.textContent = 'Submitting...'; btn.disabled = true;
-    setTimeout(() => {
-      document.getElementById('cvSuccess').style.display = 'block';
-      this.reset();
-      fileInfo.textContent = 'Maximum file size: 2MB';
-      fileInfo.className = 'file-info';
+    btn.textContent = 'Submitting…'; btn.disabled = true;
+
+    const data = new FormData();
+    data.append('access_key', W3F_KEY);
+    data.append('subject',    `New CV Submission — ${role} (${sector})`);
+    data.append('from_name',  'ZinaJob CV Form');
+    data.append('Name',       name);
+    data.append('Email',      email);
+    data.append('Phone',      phone);
+    data.append('Sector',     sector);
+    data.append('Experience', experience);
+    data.append('Role',       role);
+    data.append('attachment', file, file.name);
+
+    try {
+      const res  = await fetch(W3F_URL, { method: 'POST', body: data });
+      const json = await res.json();
+      if (json.success) {
+        sucEl.style.display = 'block';
+        this.reset();
+        fileInfo.textContent = 'Maximum file size: 2MB';
+        fileInfo.className   = 'file-info';
+      } else {
+        throw new Error(json.message || 'Submission failed');
+      }
+    } catch (err) {
+      errEl.textContent = 'Something went wrong. Please email your CV directly to info@zinajob.com.';
+      errEl.style.display = 'block';
+    } finally {
       btn.textContent = 'Submit My CV →'; btn.disabled = false;
-    }, 1200);
+    }
   });
 
-  // Employer form submission
-  document.getElementById('employerForm').addEventListener('submit', function(e) {
+  // ── Employer form submission ──────────────────────────────────
+  document.getElementById('employerForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    const name = document.getElementById('e_name').value.trim();
+    const name    = document.getElementById('e_name').value.trim();
     const company = document.getElementById('e_company').value.trim();
-    const email = document.getElementById('e_email').value.trim();
-    const sector = document.getElementById('e_sector').value;
-    const role = document.getElementById('e_role').value.trim();
+    const email   = document.getElementById('e_email').value.trim();
+    const sector  = document.getElementById('e_sector').value;
+    const type    = document.getElementById('e_type').value;
+    const role    = document.getElementById('e_role').value.trim();
+    const brief   = document.getElementById('e_brief').value.trim();
     const consent = document.getElementById('e_consent').checked;
-    const errEl = document.getElementById('empError');
+    const errEl   = document.getElementById('empError');
+    const sucEl   = document.getElementById('empSuccess');
 
     errEl.style.display = 'none';
+    sucEl.style.display = 'none';
 
     if (!name || !company || !email || !sector || !role) {
       errEl.textContent = 'Please fill in all required fields.';
@@ -800,12 +830,35 @@
     }
 
     const btn = this.querySelector('button[type="submit"]');
-    btn.textContent = 'Sending...'; btn.disabled = true;
-    setTimeout(() => {
-      document.getElementById('empSuccess').style.display = 'block';
-      this.reset();
+    btn.textContent = 'Sending…'; btn.disabled = true;
+
+    const data = new FormData();
+    data.append('access_key',        W3F_KEY);
+    data.append('subject',           `New Hiring Brief — ${role} at ${company}`);
+    data.append('from_name',         'ZinaJob Employer Form');
+    data.append('Contact Name',      name);
+    data.append('Company',           company);
+    data.append('Email',             email);
+    data.append('Sector',            sector);
+    data.append('Employment Type',   type || 'Not specified');
+    data.append('Role',              role);
+    data.append('Brief',             brief || 'Not provided');
+
+    try {
+      const res  = await fetch(W3F_URL, { method: 'POST', body: data });
+      const json = await res.json();
+      if (json.success) {
+        sucEl.style.display = 'block';
+        this.reset();
+      } else {
+        throw new Error(json.message || 'Submission failed');
+      }
+    } catch (err) {
+      errEl.textContent = 'Something went wrong. Please email your brief directly to info@zinajob.com.';
+      errEl.style.display = 'block';
+    } finally {
       btn.textContent = 'Send Hiring Brief →'; btn.disabled = false;
-    }, 1200);
+    }
   });
 </script>
 </body>
