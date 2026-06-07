@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ZinaJob — Talent Recruitment Agency, Lagos</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="shortcut icon" href="logo.svg">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -40,10 +42,15 @@
     }
 
     .logo {
-      font-size: 1.6rem; font-weight: 800; letter-spacing: -0.5px;
-      color: var(--white); text-decoration: none;
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
     }
-    .logo span { color: var(--green); }
+    .logo img { height: 38px; width: 38px; border-radius: 6px; display: block; }
+    .logo-text {
+      font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px;
+      color: var(--white);
+    }
+    .logo-text span { color: var(--green); }
 
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
@@ -345,7 +352,10 @@
 
 <!-- NAV -->
 <nav>
-  <a class="logo" href="#">Zina<span>Job</span></a>
+  <a class="logo" href="#">
+    <img src="logo.svg" alt="ZinaJob Logo">
+    <span class="logo-text">Zina<span>Job</span></span>
+  </a>
   <ul class="nav-links">
     <li><a href="#sectors">Sectors</a></li>
     <li><a href="#candidates">For Candidates</a></li>
@@ -664,7 +674,10 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a class="logo" href="#">Zina<span>Job</span></a>
+      <a class="logo" href="#" style="margin-bottom:12px;">
+        <img src="logo.svg" alt="ZinaJob Logo">
+        <span class="logo-text">Zina<span>Job</span></span>
+      </a>
       <p>A specialist B2B recruitment agency placing talent across Tech, Financial Services, FMCG, and Healthcare in Lagos, Nigeria. We work with growing businesses that take hiring seriously.</p>
     </div>
     <div class="footer-col">
