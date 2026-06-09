@@ -1,840 +1,1414 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ZinaJob — Talent Recruitment Agency, Lagos</title>
-  <link rel="icon" href="logo.png">
-  <link rel="shortcut icon" href="logo.png">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZinaJob — Talent Recruitment Agency, Lagos</title>
+    <link rel="icon" href="favicon.ico" />
+    <link rel="shortcut icon" href="logo.png" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    :root {
-      --navy: #0A2540;
-      --green: #00C896;
-      --orange: #FF6B35;
-      --light: #F4F7F9;
-      --mid: #E8EDF2;
-      --text: #1A2B3C;
-      --muted: #5A7184;
-      --white: #ffffff;
-      --radius: 10px;
-      --shadow: 0 4px 24px rgba(10,37,64,0.10);
-    }
+      :root {
+        --navy: #0a2540;
+        --green: #00c896;
+        --orange: #ff6b35;
+        --light: #f4f7f9;
+        --mid: #e8edf2;
+        --text: #1a2b3c;
+        --muted: #5a7184;
+        --white: #ffffff;
+        --radius: 10px;
+        --shadow: 0 4px 24px rgba(10, 37, 64, 0.1);
+      }
 
-    html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+      }
 
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.6;
-    }
+      body {
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        color: var(--text);
+        background: var(--white);
+        line-height: 1.6;
+      }
 
-    /* ── NAV ── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--navy);
-      padding: 0 5%;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
-    }
+      /* ── NAV ── */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--navy);
+        padding: 0 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+      }
 
-    .logo {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none;
-    }
-    .logo img { height: 40px; width: 63px; border-radius: 6px; display: block; }
-    .logo-text {
-      font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px;
-      color: var(--white);
-    }
-    .logo-text span { color: var(--green); }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        text-decoration: none;
+      }
+      .logo img {
+        width: 120px;
 
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      color: rgba(255,255,255,0.78); text-decoration: none;
-      font-size: 0.92rem; font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--green); }
+        display: block;
+      }
+      .logo-text {
+        font-size: 1.5rem;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        color: var(--white);
+      }
+      .logo-text span {
+        color: var(--green);
+      }
 
-    .nav-cta {
-      background: var(--green); color: var(--navy) !important;
-      padding: 8px 20px; border-radius: 6px;
-      font-weight: 700 !important; font-size: 0.88rem !important;
-      transition: background 0.2s !important;
-    }
-    .nav-cta:hover { background: #00e8ae !important; }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: rgba(255, 255, 255, 0.78);
+        text-decoration: none;
+        font-size: 0.92rem;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--green);
+      }
 
-    /* ── HERO ── */
-    .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, #0f3460 60%, #1a4a7a 100%);
-      padding: 90px 5% 80px;
-      text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; top: -60px; right: -60px;
-      width: 380px; height: 380px;
-      background: radial-gradient(circle, rgba(0,200,150,0.12), transparent 70%);
-      border-radius: 50%;
-    }
-    .hero::after {
-      content: '';
-      position: absolute; bottom: -80px; left: -40px;
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(255,107,53,0.09), transparent 70%);
-      border-radius: 50%;
-    }
+      .nav-cta {
+        background: var(--green);
+        color: var(--navy) !important;
+        padding: 8px 20px;
+        border-radius: 6px;
+        font-weight: 700 !important;
+        font-size: 0.88rem !important;
+        transition: background 0.2s !important;
+      }
+      .nav-cta:hover {
+        background: #00e8ae !important;
+      }
 
-    .hero-tag {
-      display: inline-block;
-      background: rgba(0,200,150,0.15);
-      color: var(--green);
-      border: 1px solid rgba(0,200,150,0.3);
-      padding: 5px 14px; border-radius: 20px;
-      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.5px;
-      text-transform: uppercase; margin-bottom: 20px;
-    }
+      /* ── HERO ── */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          #0f3460 60%,
+          #1a4a7a 100%
+        );
+        padding: 90px 5% 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 380px;
+        height: 380px;
+        background: radial-gradient(
+          circle,
+          rgba(0, 200, 150, 0.12),
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        left: -40px;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 107, 53, 0.09),
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
 
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      font-weight: 800; color: var(--white);
-      line-height: 1.15; max-width: 760px; margin: 0 auto 20px;
-      letter-spacing: -0.5px;
-    }
-    .hero h1 em { color: var(--green); font-style: normal; }
+      .hero-tag {
+        display: inline-block;
+        background: rgba(0, 200, 150, 0.15);
+        color: var(--green);
+        border: 1px solid rgba(0, 200, 150, 0.3);
+        padding: 5px 14px;
+        border-radius: 20px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
 
-    .hero p {
-      font-size: 1.1rem; color: rgba(255,255,255,0.72);
-      max-width: 560px; margin: 0 auto 36px;
-    }
+      .hero h1 {
+        font-size: clamp(2rem, 5vw, 3.4rem);
+        font-weight: 800;
+        color: var(--white);
+        line-height: 1.15;
+        max-width: 760px;
+        margin: 0 auto 20px;
+        letter-spacing: -0.5px;
+      }
+      .hero h1 em {
+        color: var(--green);
+        font-style: normal;
+      }
 
-    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+      .hero p {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.72);
+        max-width: 560px;
+        margin: 0 auto 36px;
+      }
 
-    .btn {
-      display: inline-block; padding: 13px 30px;
-      border-radius: 8px; font-weight: 700; font-size: 0.95rem;
-      cursor: pointer; text-decoration: none;
-      transition: all 0.2s; border: none;
-    }
-    .btn-primary { background: var(--green); color: var(--navy); }
-    .btn-primary:hover { background: #00e8ae; transform: translateY(-1px); }
-    .btn-outline {
-      background: transparent; color: var(--white);
-      border: 2px solid rgba(255,255,255,0.35);
-    }
-    .btn-outline:hover { border-color: var(--white); transform: translateY(-1px); }
-    .btn-orange { background: var(--orange); color: var(--white); }
-    .btn-orange:hover { background: #ff824f; transform: translateY(-1px); }
+      .hero-btns {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
 
-    .hero-stats {
-      display: flex; gap: 40px; justify-content: center;
-      margin-top: 52px; flex-wrap: wrap;
-    }
-    .stat { text-align: center; }
-    .stat strong { display: block; font-size: 1.8rem; font-weight: 800; color: var(--green); }
-    .stat span { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+      .btn {
+        display: inline-block;
+        padding: 13px 30px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s;
+        border: none;
+      }
+      .btn-primary {
+        background: var(--green);
+        color: var(--navy);
+      }
+      .btn-primary:hover {
+        background: #00e8ae;
+        transform: translateY(-1px);
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--white);
+        border: 2px solid rgba(255, 255, 255, 0.35);
+      }
+      .btn-outline:hover {
+        border-color: var(--white);
+        transform: translateY(-1px);
+      }
+      .btn-orange {
+        background: var(--orange);
+        color: var(--white);
+      }
+      .btn-orange:hover {
+        background: #ff824f;
+        transform: translateY(-1px);
+      }
 
-    /* ── SECTION BASE ── */
-    section { padding: 72px 5%; }
-    .section-label {
-      font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--green); margin-bottom: 10px;
-    }
-    h2 {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 800; color: var(--navy); line-height: 1.2;
-      margin-bottom: 14px; letter-spacing: -0.3px;
-    }
-    .lead { font-size: 1.05rem; color: var(--muted); max-width: 560px; margin-bottom: 40px; }
+      .hero-stats {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        margin-top: 52px;
+        flex-wrap: wrap;
+      }
+      .stat {
+        text-align: center;
+      }
+      .stat strong {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--green);
+      }
+      .stat span {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.6);
+      }
 
-    /* ── HOW IT WORKS ── */
-    .how { background: var(--light); }
-    .how-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
-      max-width: 1100px; margin: 0 auto;
-    }
-    .how-col h3 {
-      font-size: 1.1rem; font-weight: 700; color: var(--navy);
-      margin-bottom: 24px; padding-bottom: 12px;
-      border-bottom: 3px solid var(--green);
-      display: flex; align-items: center; gap: 10px;
-    }
-    .how-col h3 .badge {
-      background: var(--navy); color: var(--white);
-      font-size: 0.7rem; padding: 3px 10px; border-radius: 20px;
-    }
-    .how-col h3 .badge.emp { background: var(--green); color: var(--navy); }
+      /* ── SECTION BASE ── */
+      section {
+        padding: 72px 5%;
+      }
+      .section-label {
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--green);
+        margin-bottom: 10px;
+      }
+      h2 {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 800;
+        color: var(--navy);
+        line-height: 1.2;
+        margin-bottom: 14px;
+        letter-spacing: -0.3px;
+      }
+      .lead {
+        font-size: 1.05rem;
+        color: var(--muted);
+        max-width: 560px;
+        margin-bottom: 40px;
+      }
 
-    .step { display: flex; gap: 16px; margin-bottom: 22px; }
-    .step-num {
-      flex-shrink: 0; width: 32px; height: 32px;
-      background: var(--navy); color: var(--white);
-      border-radius: 50%; font-size: 0.85rem; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .how-col.emp .step-num { background: var(--green); color: var(--navy); }
-    .step-text strong { display: block; font-size: 0.95rem; color: var(--navy); margin-bottom: 3px; }
-    .step-text span { font-size: 0.88rem; color: var(--muted); }
+      /* ── HOW IT WORKS ── */
+      .how {
+        background: var(--light);
+      }
+      .how-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .how-col h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 24px;
+        padding-bottom: 12px;
+        border-bottom: 3px solid var(--green);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .how-col h3 .badge {
+        background: var(--navy);
+        color: var(--white);
+        font-size: 0.7rem;
+        padding: 3px 10px;
+        border-radius: 20px;
+      }
+      .how-col h3 .badge.emp {
+        background: var(--green);
+        color: var(--navy);
+      }
 
-    /* ── SECTORS ── */
-    .sectors-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px; max-width: 900px;
-    }
-    .sector-card {
-      background: var(--white); border: 1px solid var(--mid);
-      border-radius: var(--radius); padding: 28px;
-      box-shadow: var(--shadow);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .sector-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(10,37,64,0.13); }
-    .sector-icon { font-size: 2rem; margin-bottom: 14px; }
-    .sector-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-    .sector-card p { font-size: 0.88rem; color: var(--muted); margin-bottom: 16px; }
-    .tags { display: flex; gap: 8px; flex-wrap: wrap; }
-    .tag {
-      background: var(--light); color: var(--navy);
-      padding: 4px 10px; border-radius: 20px;
-      font-size: 0.76rem; font-weight: 600;
-    }
-    .tag.green { background: rgba(0,200,150,0.12); color: #007a5e; }
+      .step {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 22px;
+      }
+      .step-num {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        background: var(--navy);
+        color: var(--white);
+        border-radius: 50%;
+        font-size: 0.85rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .how-col.emp .step-num {
+        background: var(--green);
+        color: var(--navy);
+      }
+      .step-text strong {
+        display: block;
+        font-size: 0.95rem;
+        color: var(--navy);
+        margin-bottom: 3px;
+      }
+      .step-text span {
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
 
-    /* ── TWO COLUMN SECTION ── */
-    .two-col {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 60px; align-items: start;
-      max-width: 1100px; margin: 0 auto;
-    }
+      /* ── SECTORS ── */
+      .sectors-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        max-width: 900px;
+      }
+      .sector-card {
+        background: var(--white);
+        border: 1px solid var(--mid);
+        border-radius: var(--radius);
+        padding: 28px;
+        box-shadow: var(--shadow);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .sector-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 36px rgba(10, 37, 64, 0.13);
+      }
+      .sector-icon {
+        font-size: 2rem;
+        margin-bottom: 14px;
+      }
+      .sector-card h3 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 8px;
+      }
+      .sector-card p {
+        font-size: 0.88rem;
+        color: var(--muted);
+        margin-bottom: 16px;
+      }
+      .tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .tag {
+        background: var(--light);
+        color: var(--navy);
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 0.76rem;
+        font-weight: 600;
+      }
+      .tag.green {
+        background: rgba(0, 200, 150, 0.12);
+        color: #007a5e;
+      }
 
-    /* ── FORMS ── */
-    .form-card {
-      background: var(--white); border: 1px solid var(--mid);
-      border-radius: var(--radius); padding: 36px;
-      box-shadow: var(--shadow);
-    }
-    .form-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
-    .form-card p { font-size: 0.88rem; color: var(--muted); margin-bottom: 24px; }
+      /* ── TWO COLUMN SECTION ── */
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
 
-    .form-group { margin-bottom: 18px; }
-    label { display: block; font-size: 0.83rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
-    label .req { color: var(--orange); }
+      /* ── FORMS ── */
+      .form-card {
+        background: var(--white);
+        border: 1px solid var(--mid);
+        border-radius: var(--radius);
+        padding: 36px;
+        box-shadow: var(--shadow);
+      }
+      .form-card h3 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 6px;
+      }
+      .form-card p {
+        font-size: 0.88rem;
+        color: var(--muted);
+        margin-bottom: 24px;
+      }
 
-    input, select, textarea {
-      width: 100%; padding: 10px 14px;
-      border: 1.5px solid var(--mid); border-radius: 7px;
-      font-size: 0.92rem; color: var(--text);
-      background: var(--light);
-      transition: border 0.2s, background 0.2s;
-      font-family: inherit;
-    }
-    input:focus, select:focus, textarea:focus {
-      outline: none; border-color: var(--green);
-      background: var(--white);
-    }
-    textarea { resize: vertical; min-height: 100px; }
+      .form-group {
+        margin-bottom: 18px;
+      }
+      label {
+        display: block;
+        font-size: 0.83rem;
+        font-weight: 600;
+        color: var(--navy);
+        margin-bottom: 6px;
+      }
+      label .req {
+        color: var(--orange);
+      }
 
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px 14px;
+        border: 1.5px solid var(--mid);
+        border-radius: 7px;
+        font-size: 0.92rem;
+        color: var(--text);
+        background: var(--light);
+        transition:
+          border 0.2s,
+          background 0.2s;
+        font-family: inherit;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--green);
+        background: var(--white);
+      }
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
 
-    .file-zone {
-      border: 2px dashed var(--mid); border-radius: 7px;
-      padding: 24px; text-align: center;
-      background: var(--light); cursor: pointer;
-      transition: border-color 0.2s, background 0.2s;
-      position: relative;
-    }
-    .file-zone:hover, .file-zone.drag { border-color: var(--green); background: rgba(0,200,150,0.05); }
-    .file-zone input[type="file"] {
-      position: absolute; inset: 0; opacity: 0; cursor: pointer;
-      width: 100%; height: 100%; background: transparent; border: none;
-    }
-    .file-zone .file-icon { font-size: 1.8rem; margin-bottom: 8px; }
-    .file-zone p { font-size: 0.85rem; color: var(--muted); margin: 0; }
-    .file-zone strong { color: var(--navy); font-size: 0.9rem; }
-    .file-info { font-size: 0.78rem; color: var(--muted); margin-top: 8px; }
-    .file-selected { color: var(--green) !important; font-weight: 600; }
-    .file-error { color: #e53e3e !important; font-weight: 600; }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
 
-    .consent { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 20px; }
-    .consent input[type="checkbox"] {
-      width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px;
-      background: var(--light); border: 1.5px solid var(--mid);
-      border-radius: 3px; cursor: pointer; padding: 0;
-    }
-    .consent label { font-size: 0.82rem; color: var(--muted); margin: 0; font-weight: 400; }
-    .consent a { color: var(--green); text-decoration: none; }
+      .file-zone {
+        border: 2px dashed var(--mid);
+        border-radius: 7px;
+        padding: 24px;
+        text-align: center;
+        background: var(--light);
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+        position: relative;
+      }
+      .file-zone:hover,
+      .file-zone.drag {
+        border-color: var(--green);
+        background: rgba(0, 200, 150, 0.05);
+      }
+      .file-zone input[type="file"] {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+      }
+      .file-zone .file-icon {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+      }
+      .file-zone p {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin: 0;
+      }
+      .file-zone strong {
+        color: var(--navy);
+        font-size: 0.9rem;
+      }
+      .file-info {
+        font-size: 0.78rem;
+        color: var(--muted);
+        margin-top: 8px;
+      }
+      .file-selected {
+        color: var(--green) !important;
+        font-weight: 600;
+      }
+      .file-error {
+        color: #e53e3e !important;
+        font-weight: 600;
+      }
 
-    .form-btn {
-      width: 100%; padding: 13px; border-radius: 8px;
-      font-size: 0.95rem; font-weight: 700; cursor: pointer;
-      border: none; transition: all 0.2s;
-    }
+      .consent {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        margin-bottom: 20px;
+      }
+      .consent input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        margin-top: 2px;
+        background: var(--light);
+        border: 1.5px solid var(--mid);
+        border-radius: 3px;
+        cursor: pointer;
+        padding: 0;
+      }
+      .consent label {
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin: 0;
+        font-weight: 400;
+      }
+      .consent a {
+        color: var(--green);
+        text-decoration: none;
+      }
 
-    .alert {
-      padding: 12px 16px; border-radius: 7px;
-      font-size: 0.88rem; margin-top: 14px;
-      display: none;
-    }
-    .alert.success { background: rgba(0,200,150,0.12); color: #007a5e; border: 1px solid rgba(0,200,150,0.3); }
-    .alert.error { background: rgba(229,62,62,0.08); color: #c53030; border: 1px solid rgba(229,62,62,0.2); }
+      .form-btn {
+        width: 100%;
+        padding: 13px;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+        border: none;
+        transition: all 0.2s;
+      }
 
-    /* ── EMPLOYERS ── */
-    .employers { background: var(--light); }
-    .value-list { list-style: none; margin-bottom: 32px; }
-    .value-list li {
-      display: flex; gap: 12px; margin-bottom: 16px;
-      font-size: 0.95rem; color: var(--text);
-    }
-    .value-list li::before {
-      content: '✓'; flex-shrink: 0;
-      width: 22px; height: 22px;
-      background: var(--green); color: var(--navy);
-      border-radius: 50%; font-size: 0.75rem; font-weight: 800;
-      display: flex; align-items: center; justify-content: center;
-      margin-top: 2px;
-    }
+      .alert {
+        padding: 12px 16px;
+        border-radius: 7px;
+        font-size: 0.88rem;
+        margin-top: 14px;
+        display: none;
+      }
+      .alert.success {
+        background: rgba(0, 200, 150, 0.12);
+        color: #007a5e;
+        border: 1px solid rgba(0, 200, 150, 0.3);
+      }
+      .alert.error {
+        background: rgba(229, 62, 62, 0.08);
+        color: #c53030;
+        border: 1px solid rgba(229, 62, 62, 0.2);
+      }
 
-    /* ── TRUST BAR ── */
-    .trust-bar {
-      background: var(--navy); padding: 40px 5%;
-      text-align: center;
-    }
-    .trust-bar p { color: rgba(255,255,255,0.55); font-size: 0.85rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
-    .trust-items { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
-    .trust-item { color: rgba(255,255,255,0.75); font-size: 0.9rem; font-weight: 600; }
+      /* ── EMPLOYERS ── */
+      .employers {
+        background: var(--light);
+      }
+      .value-list {
+        list-style: none;
+        margin-bottom: 32px;
+      }
+      .value-list li {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 16px;
+        font-size: 0.95rem;
+        color: var(--text);
+      }
+      .value-list li::before {
+        content: "✓";
+        flex-shrink: 0;
+        width: 22px;
+        height: 22px;
+        background: var(--green);
+        color: var(--navy);
+        border-radius: 50%;
+        font-size: 0.75rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2px;
+      }
 
-    /* ── FOOTER ── */
-    footer {
-      background: #060f1a; padding: 48px 5% 28px;
-      color: rgba(255,255,255,0.6);
-    }
-    .footer-grid {
-      display: grid; grid-template-columns: 2fr 1fr 1fr;
-      gap: 48px; margin-bottom: 40px;
-    }
-    .footer-brand .logo { font-size: 1.4rem; display: block; margin-bottom: 12px; }
-    .footer-brand p { font-size: 0.85rem; line-height: 1.7; max-width: 280px; }
-    .footer-col h4 { color: var(--white); font-size: 0.88rem; font-weight: 700; margin-bottom: 14px; }
-    .footer-col a {
-      display: block; color: rgba(255,255,255,0.55);
-      text-decoration: none; font-size: 0.85rem;
-      margin-bottom: 8px; transition: color 0.2s;
-    }
-    .footer-col a:hover { color: var(--green); }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 20px;
-      display: flex; justify-content: space-between;
-      font-size: 0.8rem; flex-wrap: wrap; gap: 10px;
-    }
-    .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
-    .footer-bottom a:hover { color: var(--green); }
+      /* ── TRUST BAR ── */
+      .trust-bar {
+        background: var(--navy);
+        padding: 40px 5%;
+        text-align: center;
+      }
+      .trust-bar p {
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .trust-items {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .trust-item {
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .how-grid, .two-col, .footer-grid { grid-template-columns: 1fr; gap: 36px; }
-      .form-row { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .hero { padding: 60px 5%; }
-      .hero-stats { gap: 24px; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 480px) {
-      .footer-grid { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
-<body>
+      /* ── FOOTER ── */
+      footer {
+        background: #060f1a;
+        padding: 48px 5% 28px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 48px;
+        margin-bottom: 40px;
+      }
+      .footer-brand .logo {
+        font-size: 1.4rem;
+        display: block;
+        margin-bottom: 12px;
+      }
+      .footer-brand p {
+        font-size: 0.85rem;
+        line-height: 1.7;
+        max-width: 280px;
+      }
+      .footer-col h4 {
+        color: var(--white);
+        font-size: 0.88rem;
+        font-weight: 700;
+        margin-bottom: 14px;
+      }
+      .footer-col a {
+        display: block;
+        color: rgba(255, 255, 255, 0.55);
+        text-decoration: none;
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+        transition: color 0.2s;
+      }
+      .footer-col a:hover {
+        color: var(--green);
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .footer-bottom a {
+        color: rgba(255, 255, 255, 0.4);
+        text-decoration: none;
+      }
+      .footer-bottom a:hover {
+        color: var(--green);
+      }
 
-<!-- NAV -->
-<nav>
-  <a class="logo" href="#">
-    <img src="logo.png" alt="ZinaJob Logo">
-    <span class="logo-text">Zina<span>Job</span></span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#sectors">Sectors</a></li>
-    <li><a href="#candidates">For Candidates</a></li>
-    <li><a href="#employers">For Employers</a></li>
-    <li><a href="#employers" class="nav-cta">Hire Talent →</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-tag">Lagos · Nigeria · B2B Recruitment</div>
-  <h1>We Place <em>Exceptional Talent</em><br/>With Growing Businesses</h1>
-  <p>ZinaJob connects Lagos-based companies with vetted professionals across Tech, Financial Services, FMCG, and Healthcare — fast, transparent, and results-driven.</p>
-  <div class="hero-btns">
-    <a href="#employers" class="btn btn-primary">Hire Talent →</a>
-    <a href="#candidates" class="btn btn-outline">Submit Your CV</a>
-  </div>
-  <div class="hero-stats">
-    <div class="stat"><strong>48h</strong><span>Average shortlist turnaround</span></div>
-    <div class="stat"><strong>4</strong><span>Specialist sectors</span></div>
-    <div class="stat"><strong>3–5</strong><span>Vetted candidates per role</span></div>
-    <div class="stat"><strong>Lagos</strong><span>+ Diaspora returnee pipeline</span></div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="how" id="how">
-  <div style="text-align:center; margin-bottom:48px;">
-    <div class="section-label">How It Works</div>
-    <h2>Simple process. Serious results.</h2>
-  </div>
-  <div class="how-grid">
-    <div class="how-col emp">
-      <h3>For Employers <span class="badge emp">B2B</span></h3>
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-text">
-          <strong>Tell us the role</strong>
-          <span>Share the job brief, salary range, and timeline via our quick enquiry form.</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-text">
-          <strong>We screen and shortlist</strong>
-          <span>We review our talent pool and actively source. You receive 3–5 vetted candidates within 48 hours.</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-text">
-          <strong>Interview and hire</strong>
-          <span>You interview only pre-qualified candidates. We manage logistics and stay through to offer.</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-text">
-          <strong>Pay on success</strong>
-          <span>Our fee is only charged when you successfully hire. No upfront costs, no risk.</span>
-        </div>
-      </div>
-    </div>
-    <div class="how-col">
-      <h3>For Candidates <span class="badge">Free</span></h3>
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-text">
-          <strong>Submit your CV</strong>
-          <span>Upload your CV (max 2MB), select your sector, role type, and experience level.</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-text">
-          <strong>We review your profile</strong>
-          <span>Our team reviews every submission. Shortlisted candidates are contacted directly within 5 working days.</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-text">
-          <strong>Get matched to roles</strong>
-          <span>We match you to active vacancies and prepare you for interviews with our clients.</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-text">
-          <strong>Land the role</strong>
-          <span>We advocate for your best offer. Our service is always free for candidates.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTORS -->
-<section id="sectors">
-  <div class="section-label">Our Sectors</div>
-  <h2>Where we specialise</h2>
-  <p class="lead">Four sectors. Deep networks. No generalist guesswork.</p>
-  <div class="sectors-grid" style="max-width: 1100px;">
-    <div class="sector-card">
-      <div class="sector-icon">💻</div>
-      <h3>Tech &amp; Digital</h3>
-      <p>Placing engineers, product managers, data professionals and digital leaders across Lagos startups and established tech businesses.</p>
-      <div class="tags">
-        <span class="tag green">Software Engineering</span>
-        <span class="tag green">Product Management</span>
-        <span class="tag green">Data &amp; Analytics</span>
-        <span class="tag green">UX / Design</span>
-        <span class="tag green">DevOps</span>
-        <span class="tag green">Fintech</span>
-      </div>
-    </div>
-    <div class="sector-card">
-      <div class="sector-icon">🏦</div>
-      <h3>Financial Services</h3>
-      <p>Sourcing finance, banking and fintech talent for Lagos-based financial institutions, investment firms, and fast-growing fintechs.</p>
-      <div class="tags">
-        <span class="tag green">Banking &amp; Finance</span>
-        <span class="tag green">Risk &amp; Compliance</span>
-        <span class="tag green">Investment</span>
-        <span class="tag green">Treasury</span>
-        <span class="tag green">Audit</span>
-        <span class="tag green">Insurance</span>
-      </div>
-    </div>
-    <div class="sector-card">
-      <div class="sector-icon">🛒</div>
-      <h3>FMCG</h3>
-      <p>Supporting consumer goods companies with commercial, supply chain and marketing talent — from field sales to senior leadership.</p>
-      <div class="tags">
-        <span class="tag">Sales &amp; Distribution</span>
-        <span class="tag">Trade Marketing</span>
-        <span class="tag">Supply Chain</span>
-        <span class="tag">Category Management</span>
-        <span class="tag">Brand Management</span>
-      </div>
-    </div>
-    <div class="sector-card">
-      <div class="sector-icon">🏥</div>
-      <h3>Healthcare</h3>
-      <p>Sourcing clinical and non-clinical professionals for private hospitals, diagnostic centres, and healthcare groups in Lagos.</p>
-      <div class="tags">
-        <span class="tag">Physicians &amp; Specialists</span>
-        <span class="tag">Nursing</span>
-        <span class="tag">Pharmacy</span>
-        <span class="tag">Lab Scientists</span>
-        <span class="tag">Healthcare Admin</span>
-      </div>
-    </div>
-  </div>
-  <div style="margin-top: 20px; padding: 16px 20px; background: rgba(0,200,150,0.07); border-left: 3px solid var(--green); border-radius: 0 7px 7px 0; max-width: 620px;">
-    <p style="font-size:0.88rem; color: var(--text);">
-      <strong style="color:var(--navy);">Diaspora returnees welcome.</strong> We maintain a dedicated pipeline of Nigerian professionals returning from the UK, US, Canada and Europe. If you're a returnee or an employer seeking international experience, <a href="#candidates" style="color:var(--green);">get in touch</a>.
-    </p>
-  </div>
-</section>
-
-<!-- CANDIDATES -->
-<section id="candidates" style="background: var(--light);">
-  <div class="two-col">
-    <div>
-      <div class="section-label">For Candidates</div>
-      <h2>Your next role starts here</h2>
-      <p class="lead">Submit your CV and let us match you to companies that are actively hiring. Always free for candidates.</p>
-      <ul class="value-list">
-        <li>Access to unadvertised roles at top Lagos companies</li>
-        <li>Personal introduction and advocacy with hiring managers</li>
-        <li>Interview preparation and salary negotiation support</li>
-        <li>Diaspora returnees supported with reintegration guidance</li>
-        <li>Your data handled securely and never shared without consent</li>
-      </ul>
-    </div>
-    <div class="form-card">
-      <h3>Submit Your CV</h3>
-      <p>Complete the form below. We review every submission personally.</p>
-      <form id="cvForm" action="https://formsubmit.co/info@zinajob.com" method="POST" enctype="multipart/form-data" novalidate>
-        <input type="hidden" name="_subject" value="New CV Submission — ZinaJob">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://zinajob.com/?cv=sent#candidates">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="cv_name">Full Name <span class="req">*</span></label>
-            <input type="text" id="cv_name" name="Full Name" placeholder="e.g. Amaka Obi" required />
-          </div>
-          <div class="form-group">
-            <label for="cv_phone">Phone Number <span class="req">*</span></label>
-            <input type="tel" id="cv_phone" name="Phone Number" placeholder="e.g. 0801 234 5678" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="cv_email">Email Address <span class="req">*</span></label>
-          <input type="email" id="cv_email" name="Email Address" placeholder="you@example.com" required />
-        </div>
-        <div class="form-group">
-            <label for="cv_experience">Years of Experience <span class="req">*</span></label>
-            <select id="cv_experience" name="Experience Level" required>
-              <option value="">Select level</option>
-              <option>0–2 years (Junior)</option>
-              <option>3–5 years (Mid-level)</option>
-              <option>6–9 years (Senior)</option>
-              <option>10+ years (Lead / Director)</option>
-            </select>
-        </div>
-        <div class="form-group">
-          <label for="cv_role">Current or Target Role <span class="req">*</span></label>
-          <input type="text" id="cv_role" name="Current or Target Role" placeholder="e.g. Software Engineer, Registered Nurse" required />
-        </div>
-        <div class="form-group">
-          <label>Upload CV <span class="req">*</span></label>
-          <div class="file-zone" id="fileZone">
-            <input type="file" id="cv_file" name="cv_attachment" accept=".pdf,.doc,.docx" />
-            <div class="file-icon">📄</div>
-            <strong>Click to upload or drag &amp; drop</strong>
-            <p>PDF or Word document only</p>
-            <p class="file-info" id="fileInfo">Maximum file size: 2MB</p>
-          </div>
-        </div>
-        <div class="consent">
-          <input type="checkbox" id="cv_consent" required />
-          <label for="cv_consent">
-            I consent to ZinaJob storing and processing my personal data for recruitment purposes. I understand my data will not be shared with third parties without my consent. <a href="#">Privacy Policy</a>.
-          </label>
-        </div>
-        <button type="submit" class="btn btn-primary form-btn">Submit My CV →</button>
-        <div class="alert success" id="cvSuccess">✓ Thank you! We've received your CV and will be in touch within 5 working days if your profile matches a current vacancy.</div>
-        <div class="alert error" id="cvError"></div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- EMPLOYERS -->
-<section class="employers" id="employers">
-  <div class="two-col">
-    <div class="form-card">
-      <h3>Hiring? Talk to us.</h3>
-      <p>Tell us about the role. We'll come back with a shortlist — no upfront fees.</p>
-      <form id="employerForm" novalidate>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="e_name">Contact Name <span class="req">*</span></label>
-            <input type="text" id="e_name" placeholder="Your full name" required />
-          </div>
-          <div class="form-group">
-            <label for="e_company">Company Name <span class="req">*</span></label>
-            <input type="text" id="e_company" placeholder="Your company" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="e_email">Work Email <span class="req">*</span></label>
-          <input type="email" id="e_email" placeholder="you@company.com" required />
-        </div>
-        <div class="form-group">
-          <label for="e_type">Employment Type</label>
-          <select id="e_type">
-            <option value="">Select type</option>
-            <option>Full-time (Permanent)</option>
-            <option>Contract</option>
-            <option>Contract-to-Perm</option>
-            <option>Part-time</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="e_role">Role Title <span class="req">*</span></label>
-          <input type="text" id="e_role" placeholder="e.g. Senior Backend Engineer" required />
-        </div>
-        <div class="form-group">
-          <label for="e_brief">Brief Description</label>
-          <textarea id="e_brief" placeholder="Key responsibilities, must-have skills, salary range, timeline..."></textarea>
-        </div>
-        <div class="consent">
-          <input type="checkbox" id="e_consent" required />
-          <label for="e_consent">
-            I agree to ZinaJob contacting me about this vacancy and storing my enquiry details. <a href="#">Privacy Policy</a>.
-          </label>
-        </div>
-        <button type="submit" class="btn btn-orange form-btn">Send Hiring Brief →</button>
-        <div class="alert success" id="empSuccess">✓ Brief received. A member of our team will contact you within 24 hours to discuss your requirement.</div>
-        <div class="alert error" id="empError"></div>
-      </form>
-    </div>
-    <div>
-      <div class="section-label">For Employers</div>
-      <h2>Hire faster with less risk</h2>
-      <p class="lead">Stop sifting through unqualified applications. We deliver a shortlist of screened, interview-ready candidates.</p>
-      <ul class="value-list">
-        <li>3–5 vetted candidates delivered within 48 hours of brief</li>
-        <li>Credentials and experience verified before you see a CV</li>
-        <li>Access to diaspora returnees with international experience</li>
-        <li>No placement fee until you successfully hire</li>
-        <li>Confidential search available for senior roles</li>
-        <li>Replacement guarantee within the first 3 months</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <p>Built for businesses across Lagos</p>
-  <div class="trust-items">
-    <span class="trust-item">🔒 Secure CV Storage</span>
-    <span class="trust-item">✅ Credential Verified Candidates</span>
-    <span class="trust-item">🌍 Diaspora Returnee Pipeline</span>
-    <span class="trust-item">💼 No-Risk Placement Fee</span>
-    <span class="trust-item">🤝 GDPR-Aligned Privacy</span>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <a class="logo" href="#" style="margin-bottom:12px;">
-        <img src="logo.png" alt="ZinaJob Logo">
-        <span class="logo-text">Zina<span>Job</span></span>
+      /* ── RESPONSIVE ── */
+      @media (max-width: 768px) {
+        .how-grid,
+        .two-col,
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .nav-links {
+          display: none;
+        }
+        .hero {
+          padding: 60px 5%;
+        }
+        .hero-stats {
+          gap: 24px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 480px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a class="logo" href="#">
+        <img src="logo.png" alt="ZinaJob Logo" />
       </a>
-      <p>A specialist B2B recruitment agency placing talent across Tech, Financial Services, FMCG, and Healthcare in Lagos, Nigeria. We work with growing businesses that take hiring seriously.</p>
+      <ul class="nav-links">
+        <li><a href="#sectors">Sectors</a></li>
+        <li><a href="#candidates">For Candidates</a></li>
+        <li><a href="#employers">For Employers</a></li>
+        <li><a href="#employers" class="nav-cta">Hire Talent →</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-tag">Lagos · Nigeria · B2B Recruitment</div>
+      <h1>We Place <em>Exceptional Talent</em><br />With Growing Businesses</h1>
+      <p>
+        ZinaJob connects Lagos-based companies with vetted professionals across
+        Tech, Financial Services, FMCG, and Healthcare — fast, transparent, and
+        results-driven.
+      </p>
+      <div class="hero-btns">
+        <a href="#employers" class="btn btn-primary">Hire Talent →</a>
+        <a href="#candidates" class="btn btn-outline">Submit Your CV</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <strong>48h</strong><span>Average shortlist turnaround</span>
+        </div>
+        <div class="stat">
+          <strong>4</strong><span>Specialist sectors</span>
+        </div>
+        <div class="stat">
+          <strong>3–5</strong><span>Vetted candidates per role</span>
+        </div>
+        <div class="stat">
+          <strong>Lagos</strong><span>+ Diaspora returnee pipeline</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how" id="how">
+      <div style="text-align: center; margin-bottom: 48px">
+        <div class="section-label">How It Works</div>
+        <h2>Simple process. Serious results.</h2>
+      </div>
+      <div class="how-grid">
+        <div class="how-col emp">
+          <h3>For Employers <span class="badge emp">B2B</span></h3>
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              <strong>Tell us the role</strong>
+              <span
+                >Share the job brief, salary range, and timeline via our quick
+                enquiry form.</span
+              >
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              <strong>We screen and shortlist</strong>
+              <span
+                >We review our talent pool and actively source. You receive 3–5
+                vetted candidates within 48 hours.</span
+              >
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text">
+              <strong>Interview and hire</strong>
+              <span
+                >You interview only pre-qualified candidates. We manage
+                logistics and stay through to offer.</span
+              >
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-text">
+              <strong>Pay on success</strong>
+              <span
+                >Our fee is only charged when you successfully hire. No upfront
+                costs, no risk.</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="how-col">
+          <h3>For Candidates <span class="badge">Free</span></h3>
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              <strong>Submit your CV</strong>
+              <span
+                >Upload your CV (max 2MB), select your sector, role type, and
+                experience level.</span
+              >
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              <strong>We review your profile</strong>
+              <span
+                >Our team reviews every submission. Shortlisted candidates are
+                contacted directly within 5 working days.</span
+              >
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-text">
+              <strong>Get matched to roles</strong>
+              <span
+                >We match you to active vacancies and prepare you for interviews
+                with our clients.</span
+              >
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-text">
+              <strong>Land the role</strong>
+              <span
+                >We advocate for your best offer. Our service is always free for
+                candidates.</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTORS -->
+    <section id="sectors">
+      <div class="section-label">Our Sectors</div>
+      <h2>Where we specialise</h2>
+      <p class="lead">Four sectors. Deep networks. No generalist guesswork.</p>
+      <div class="sectors-grid" style="max-width: 1100px">
+        <div class="sector-card">
+          <div class="sector-icon">💻</div>
+          <h3>Tech &amp; Digital</h3>
+          <p>
+            Placing engineers, product managers, data professionals and digital
+            leaders across Lagos startups and established tech businesses.
+          </p>
+          <div class="tags">
+            <span class="tag green">Software Engineering</span>
+            <span class="tag green">Product Management</span>
+            <span class="tag green">Data &amp; Analytics</span>
+            <span class="tag green">UX / Design</span>
+            <span class="tag green">DevOps</span>
+            <span class="tag green">Fintech</span>
+          </div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-icon">🏦</div>
+          <h3>Financial Services</h3>
+          <p>
+            Sourcing finance, banking and fintech talent for Lagos-based
+            financial institutions, investment firms, and fast-growing fintechs.
+          </p>
+          <div class="tags">
+            <span class="tag green">Banking &amp; Finance</span>
+            <span class="tag green">Risk &amp; Compliance</span>
+            <span class="tag green">Investment</span>
+            <span class="tag green">Treasury</span>
+            <span class="tag green">Audit</span>
+            <span class="tag green">Insurance</span>
+          </div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-icon">🛒</div>
+          <h3>FMCG</h3>
+          <p>
+            Supporting consumer goods companies with commercial, supply chain
+            and marketing talent — from field sales to senior leadership.
+          </p>
+          <div class="tags">
+            <span class="tag">Sales &amp; Distribution</span>
+            <span class="tag">Trade Marketing</span>
+            <span class="tag">Supply Chain</span>
+            <span class="tag">Category Management</span>
+            <span class="tag">Brand Management</span>
+          </div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-icon">🏥</div>
+          <h3>Healthcare</h3>
+          <p>
+            Sourcing clinical and non-clinical professionals for private
+            hospitals, diagnostic centres, and healthcare groups in Lagos.
+          </p>
+          <div class="tags">
+            <span class="tag">Physicians &amp; Specialists</span>
+            <span class="tag">Nursing</span>
+            <span class="tag">Pharmacy</span>
+            <span class="tag">Lab Scientists</span>
+            <span class="tag">Healthcare Admin</span>
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          margin-top: 20px;
+          padding: 16px 20px;
+          background: rgba(0, 200, 150, 0.07);
+          border-left: 3px solid var(--green);
+          border-radius: 0 7px 7px 0;
+          max-width: 620px;
+        "
+      >
+        <p style="font-size: 0.88rem; color: var(--text)">
+          <strong style="color: var(--navy)"
+            >Diaspora returnees welcome.</strong
+          >
+          We maintain a dedicated pipeline of Nigerian professionals returning
+          from the UK, US, Canada and Europe. If you're a returnee or an
+          employer seeking international experience,
+          <a href="#candidates" style="color: var(--green)">get in touch</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- CANDIDATES -->
+    <section id="candidates" style="background: var(--light)">
+      <div class="two-col">
+        <div>
+          <div class="section-label">For Candidates</div>
+          <h2>Your next role starts here</h2>
+          <p class="lead">
+            Submit your CV and let us match you to companies that are actively
+            hiring. Always free for candidates.
+          </p>
+          <ul class="value-list">
+            <li>Access to unadvertised roles at top Lagos companies</li>
+            <li>Personal introduction and advocacy with hiring managers</li>
+            <li>Interview preparation and salary negotiation support</li>
+            <li>Diaspora returnees supported with reintegration guidance</li>
+            <li>Your data handled securely and never shared without consent</li>
+          </ul>
+        </div>
+        <div class="form-card">
+          <h3>Submit Your CV</h3>
+          <p>Complete the form below. We review every submission personally.</p>
+          <form
+            id="cvForm"
+            action="https://formsubmit.co/info@zinajob.com"
+            method="POST"
+            enctype="multipart/form-data"
+            novalidate
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="New CV Submission — ZinaJob"
+            />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input
+              type="hidden"
+              name="_next"
+              value="https://zinajob.com/?cv=sent#candidates"
+            />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cv_name"
+                  >Full Name <span class="req">*</span></label
+                >
+                <input
+                  type="text"
+                  id="cv_name"
+                  name="Full Name"
+                  placeholder="e.g. Amaka Obi"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="cv_phone"
+                  >Phone Number <span class="req">*</span></label
+                >
+                <input
+                  type="tel"
+                  id="cv_phone"
+                  name="Phone Number"
+                  placeholder="e.g. 0801 234 5678"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cv_email"
+                >Email Address <span class="req">*</span></label
+              >
+              <input
+                type="email"
+                id="cv_email"
+                name="Email Address"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="cv_experience"
+                >Years of Experience <span class="req">*</span></label
+              >
+              <select id="cv_experience" name="Experience Level" required>
+                <option value="">Select level</option>
+                <option>0–2 years (Junior)</option>
+                <option>3–5 years (Mid-level)</option>
+                <option>6–9 years (Senior)</option>
+                <option>10+ years (Lead / Director)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cv_role"
+                >Current or Target Role <span class="req">*</span></label
+              >
+              <input
+                type="text"
+                id="cv_role"
+                name="Current or Target Role"
+                placeholder="e.g. Software Engineer, Registered Nurse"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Upload CV <span class="req">*</span></label>
+              <div class="file-zone" id="fileZone">
+                <input
+                  type="file"
+                  id="cv_file"
+                  name="cv_attachment"
+                  accept=".pdf,.doc,.docx"
+                />
+                <div class="file-icon">📄</div>
+                <strong>Click to upload or drag &amp; drop</strong>
+                <p>PDF or Word document only</p>
+                <p class="file-info" id="fileInfo">Maximum file size: 2MB</p>
+              </div>
+            </div>
+            <div class="consent">
+              <input type="checkbox" id="cv_consent" required />
+              <label for="cv_consent">
+                I consent to ZinaJob storing and processing my personal data for
+                recruitment purposes. I understand my data will not be shared
+                with third parties without my consent.
+                <a href="#">Privacy Policy</a>.
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary form-btn">
+              Submit My CV →
+            </button>
+            <div class="alert success" id="cvSuccess">
+              ✓ Thank you! We've received your CV and will be in touch within 5
+              working days if your profile matches a current vacancy.
+            </div>
+            <div class="alert error" id="cvError"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- EMPLOYERS -->
+    <section class="employers" id="employers">
+      <div class="two-col">
+        <div class="form-card">
+          <h3>Hiring? Talk to us.</h3>
+          <p>
+            Tell us about the role. We'll come back with a shortlist — no
+            upfront fees.
+          </p>
+          <form id="employerForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="e_name"
+                  >Contact Name <span class="req">*</span></label
+                >
+                <input
+                  type="text"
+                  id="e_name"
+                  placeholder="Your full name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="e_company"
+                  >Company Name <span class="req">*</span></label
+                >
+                <input
+                  type="text"
+                  id="e_company"
+                  placeholder="Your company"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="e_email">Work Email <span class="req">*</span></label>
+              <input
+                type="email"
+                id="e_email"
+                placeholder="you@company.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="e_type">Employment Type</label>
+              <select id="e_type">
+                <option value="">Select type</option>
+                <option>Full-time (Permanent)</option>
+                <option>Contract</option>
+                <option>Contract-to-Perm</option>
+                <option>Part-time</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="e_role">Role Title <span class="req">*</span></label>
+              <input
+                type="text"
+                id="e_role"
+                placeholder="e.g. Senior Backend Engineer"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="e_brief">Brief Description</label>
+              <textarea
+                id="e_brief"
+                placeholder="Key responsibilities, must-have skills, salary range, timeline..."
+              ></textarea>
+            </div>
+            <div class="consent">
+              <input type="checkbox" id="e_consent" required />
+              <label for="e_consent">
+                I agree to ZinaJob contacting me about this vacancy and storing
+                my enquiry details. <a href="#">Privacy Policy</a>.
+              </label>
+            </div>
+            <button type="submit" class="btn btn-orange form-btn">
+              Send Hiring Brief →
+            </button>
+            <div class="alert success" id="empSuccess">
+              ✓ Brief received. A member of our team will contact you within 24
+              hours to discuss your requirement.
+            </div>
+            <div class="alert error" id="empError"></div>
+          </form>
+        </div>
+        <div>
+          <div class="section-label">For Employers</div>
+          <h2>Hire faster with less risk</h2>
+          <p class="lead">
+            Stop sifting through unqualified applications. We deliver a
+            shortlist of screened, interview-ready candidates.
+          </p>
+          <ul class="value-list">
+            <li>3–5 vetted candidates delivered within 48 hours of brief</li>
+            <li>Credentials and experience verified before you see a CV</li>
+            <li>Access to diaspora returnees with international experience</li>
+            <li>No placement fee until you successfully hire</li>
+            <li>Confidential search available for senior roles</li>
+            <li>Replacement guarantee within the first 3 months</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <div class="trust-bar">
+      <p>Built for businesses across Lagos</p>
+      <div class="trust-items">
+        <span class="trust-item">🔒 Secure CV Storage</span>
+        <span class="trust-item">✅ Credential Verified Candidates</span>
+        <span class="trust-item">🌍 Diaspora Returnee Pipeline</span>
+        <span class="trust-item">💼 No-Risk Placement Fee</span>
+        <span class="trust-item">🤝 GDPR-Aligned Privacy</span>
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <a href="#sectors">Our Sectors</a>
-      <a href="#candidates">Submit a CV</a>
-      <a href="#employers">Hire Talent</a>
-      <a href="#how">How It Works</a>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <a href="mailto:hello@zinajob.com">hello@zinajob.com</a>
-      <a href="tel:+2341234567">+234 (0) 123 456 7890</a>
-      <a href="#">Lagos, Nigeria</a>
-      <a href="#">Privacy Policy</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 ZinaJob. All rights reserved.</span>
-    <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></span>
-  </div>
-</footer>
 
-<script>
-  const W3F_KEY = 'ec4ad484-d46a-4657-9067-b3c734a13e11';
-  const W3F_URL = 'https://api.web3forms.com/submit';
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="logo" href="#" style="margin-bottom: 12px">
+            <img src="logo.png" alt="ZinaJob Logo" />
+          </a>
+          <p>
+            A specialist B2B recruitment agency placing talent across Tech,
+            Financial Services, FMCG, and Healthcare in Lagos, Nigeria. We work
+            with growing businesses that take hiring seriously.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="#sectors">Our Sectors</a>
+          <a href="#candidates">Submit a CV</a>
+          <a href="#employers">Hire Talent</a>
+          <a href="#how">How It Works</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:info@zinajob.com">info@zinajob.com</a>
+          <a href="tel:+2349016769751">+234 (0) 901 676 9751</a>
+          <a href="#">Lagos, Nigeria</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ZinaJob. All rights reserved.</span>
+        <span
+          ><a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></span
+        >
+      </div>
+    </footer>
 
-  // ── File upload handling ──────────────────────────────────────
-  const fileInput = document.getElementById('cv_file');
-  const fileInfo  = document.getElementById('fileInfo');
-  const fileZone  = document.getElementById('fileZone');
-  const MAX_SIZE  = 2 * 1024 * 1024; // 2MB
+    <script>
+      const W3F_KEY = "ec4ad484-d46a-4657-9067-b3c734a13e11";
+      const W3F_URL = "https://api.web3forms.com/submit";
 
-  fileInput.addEventListener('change', () => {
-    const file = fileInput.files[0];
-    if (!file) return;
-    if (file.size > MAX_SIZE) {
-      fileInfo.textContent = `✗ File too large (${(file.size/1024/1024).toFixed(1)}MB). Max 2MB.`;
-      fileInfo.className = 'file-info file-error';
-      fileInput.value = '';
-    } else {
-      fileInfo.textContent = `✓ ${file.name} (${(file.size/1024).toFixed(0)}KB)`;
-      fileInfo.className = 'file-info file-selected';
-    }
-  });
+      // ── File upload handling ──────────────────────────────────────
+      const fileInput = document.getElementById("cv_file");
+      const fileInfo = document.getElementById("fileInfo");
+      const fileZone = document.getElementById("fileZone");
+      const MAX_SIZE = 2 * 1024 * 1024; // 2MB
 
-  fileZone.addEventListener('dragover',  e => { e.preventDefault(); fileZone.classList.add('drag'); });
-  fileZone.addEventListener('dragleave', ()  => fileZone.classList.remove('drag'));
-  fileZone.addEventListener('drop',      e  => { e.preventDefault(); fileZone.classList.remove('drag'); });
+      fileInput.addEventListener("change", () => {
+        const file = fileInput.files[0];
+        if (!file) return;
+        if (file.size > MAX_SIZE) {
+          fileInfo.textContent = `✗ File too large (${(file.size / 1024 / 1024).toFixed(1)}MB). Max 2MB.`;
+          fileInfo.className = "file-info file-error";
+          fileInput.value = "";
+        } else {
+          fileInfo.textContent = `✓ ${file.name} (${(file.size / 1024).toFixed(0)}KB)`;
+          fileInfo.className = "file-info file-selected";
+        }
+      });
 
-  // ── Show CV success message if redirected back after submission ──
-  if (new URLSearchParams(window.location.search).get('cv') === 'sent') {
-    window.addEventListener('DOMContentLoaded', () => {
-      const sucEl = document.getElementById('cvSuccess');
-      if (sucEl) {
-        sucEl.style.display = 'block';
-        document.getElementById('candidates').scrollIntoView({ behavior: 'smooth' });
+      fileZone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        fileZone.classList.add("drag");
+      });
+      fileZone.addEventListener("dragleave", () =>
+        fileZone.classList.remove("drag"),
+      );
+      fileZone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        fileZone.classList.remove("drag");
+      });
+
+      // ── Show CV success message if redirected back after submission ──
+      if (new URLSearchParams(window.location.search).get("cv") === "sent") {
+        window.addEventListener("DOMContentLoaded", () => {
+          const sucEl = document.getElementById("cvSuccess");
+          if (sucEl) {
+            sucEl.style.display = "block";
+            document
+              .getElementById("candidates")
+              .scrollIntoView({ behavior: "smooth" });
+          }
+        });
       }
-    });
-  }
 
-  // ── CV form — validate then submit natively to Formsubmit ────
-  document.getElementById('cvForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name       = document.getElementById('cv_name').value.trim();
-    const email      = document.getElementById('cv_email').value.trim();
-    const phone      = document.getElementById('cv_phone').value.trim();
-    const sector     = document.getElementById('cv_sector').value;
-    const experience = document.getElementById('cv_experience').value;
-    const role       = document.getElementById('cv_role').value.trim();
-    const file       = document.getElementById('cv_file').files[0];
-    const consent    = document.getElementById('cv_consent').checked;
-    const errEl      = document.getElementById('cvError');
+      // ── CV form — validate then submit natively to Formsubmit ────
+      document
+        .getElementById("cvForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const name = document.getElementById("cv_name").value.trim();
+          const email = document.getElementById("cv_email").value.trim();
+          const phone = document.getElementById("cv_phone").value.trim();
+          const sector = document.getElementById("cv_sector").value;
+          const experience = document.getElementById("cv_experience").value;
+          const role = document.getElementById("cv_role").value.trim();
+          const file = document.getElementById("cv_file").files[0];
+          const consent = document.getElementById("cv_consent").checked;
+          const errEl = document.getElementById("cvError");
 
-    errEl.style.display = 'none';
+          errEl.style.display = "none";
 
-    if (!name || !email || !phone || !sector || !experience || !role) {
-      errEl.textContent = 'Please fill in all required fields.';
-      errEl.style.display = 'block'; return;
-    }
-    if (!file) {
-      errEl.textContent = 'Please upload your CV (PDF or Word, max 2MB).';
-      errEl.style.display = 'block'; return;
-    }
-    if (file.size > MAX_SIZE) {
-      errEl.textContent = 'CV file exceeds 2MB. Please compress or re-export and try again.';
-      errEl.style.display = 'block'; return;
-    }
-    if (!consent) {
-      errEl.textContent = 'Please accept the data consent to continue.';
-      errEl.style.display = 'block'; return;
-    }
+          if (!name || !email || !phone || !sector || !experience || !role) {
+            errEl.textContent = "Please fill in all required fields.";
+            errEl.style.display = "block";
+            return;
+          }
+          if (!file) {
+            errEl.textContent = "Please upload your CV (PDF or Word, max 2MB).";
+            errEl.style.display = "block";
+            return;
+          }
+          if (file.size > MAX_SIZE) {
+            errEl.textContent =
+              "CV file exceeds 2MB. Please compress or re-export and try again.";
+            errEl.style.display = "block";
+            return;
+          }
+          if (!consent) {
+            errEl.textContent = "Please accept the data consent to continue.";
+            errEl.style.display = "block";
+            return;
+          }
 
-    // All valid — update subject with role details then submit natively
-    const subjectField = this.querySelector('input[name="_subject"]');
-    subjectField.value = `New CV Submission — ${role} (${sector})`;
+          // All valid — update subject with role details then submit natively
+          const subjectField = this.querySelector('input[name="_subject"]');
+          subjectField.value = `New CV Submission — ${role} (${sector})`;
 
-    const btn = this.querySelector('button[type="submit"]');
-    btn.textContent = 'Submitting…'; btn.disabled = true;
-    this.submit();
-  });
+          const btn = this.querySelector('button[type="submit"]');
+          btn.textContent = "Submitting…";
+          btn.disabled = true;
+          this.submit();
+        });
 
-  // ── Employer form submission ──────────────────────────────────
-  document.getElementById('employerForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const name    = document.getElementById('e_name').value.trim();
-    const company = document.getElementById('e_company').value.trim();
-    const email   = document.getElementById('e_email').value.trim();
-    const type    = document.getElementById('e_type').value;
-    const role    = document.getElementById('e_role').value.trim();
-    const brief   = document.getElementById('e_brief').value.trim();
-    const consent = document.getElementById('e_consent').checked;
-    const errEl   = document.getElementById('empError');
-    const sucEl   = document.getElementById('empSuccess');
+      // ── Employer form submission ──────────────────────────────────
+      document
+        .getElementById("employerForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const name = document.getElementById("e_name").value.trim();
+          const company = document.getElementById("e_company").value.trim();
+          const email = document.getElementById("e_email").value.trim();
+          const type = document.getElementById("e_type").value;
+          const role = document.getElementById("e_role").value.trim();
+          const brief = document.getElementById("e_brief").value.trim();
+          const consent = document.getElementById("e_consent").checked;
+          const errEl = document.getElementById("empError");
+          const sucEl = document.getElementById("empSuccess");
 
-    errEl.style.display = 'none';
-    sucEl.style.display = 'none';
+          errEl.style.display = "none";
+          sucEl.style.display = "none";
 
-    if (!name || !company || !email || !role) {
-      errEl.textContent = 'Please fill in all required fields.';
-      errEl.style.display = 'block'; return;
-    }
-    if (!consent) {
-      errEl.textContent = 'Please accept the privacy policy to continue.';
-      errEl.style.display = 'block'; return;
-    }
+          if (!name || !company || !email || !role) {
+            errEl.textContent = "Please fill in all required fields.";
+            errEl.style.display = "block";
+            return;
+          }
+          if (!consent) {
+            errEl.textContent = "Please accept the privacy policy to continue.";
+            errEl.style.display = "block";
+            return;
+          }
 
-    const btn = this.querySelector('button[type="submit"]');
-    btn.textContent = 'Sending…'; btn.disabled = true;
+          const btn = this.querySelector('button[type="submit"]');
+          btn.textContent = "Sending…";
+          btn.disabled = true;
 
-    const data = new FormData();
-    data.append('access_key',        W3F_KEY);
-    data.append('subject',           `New Hiring Brief — ${role} at ${company}`);
-    data.append('from_name',         'ZinaJob Employer Form');
-    data.append('Contact Name',      name);
-    data.append('Company',           company);
-    data.append('Email',             email);
-    data.append('Employment Type',   type || 'Not specified');
-    data.append('Role',              role);
-    data.append('Brief',             brief || 'Not provided');
+          const data = new FormData();
+          data.append("access_key", W3F_KEY);
+          data.append("subject", `New Hiring Brief — ${role} at ${company}`);
+          data.append("from_name", "ZinaJob Employer Form");
+          data.append("Contact Name", name);
+          data.append("Company", company);
+          data.append("Email", email);
+          data.append("Employment Type", type || "Not specified");
+          data.append("Role", role);
+          data.append("Brief", brief || "Not provided");
 
-    try {
-      const res  = await fetch(W3F_URL, { method: 'POST', body: data });
-      const json = await res.json();
-      if (json.success) {
-        sucEl.style.display = 'block';
-        this.reset();
-      } else {
-        throw new Error(json.message || 'Submission failed');
-      }
-    } catch (err) {
-      errEl.textContent = 'Something went wrong. Please email your brief directly to info@zinajob.com.';
-      errEl.style.display = 'block';
-    } finally {
-      btn.textContent = 'Send Hiring Brief →'; btn.disabled = false;
-    }
-  });
-</script>
-</body>
+          try {
+            const res = await fetch(W3F_URL, { method: "POST", body: data });
+            const json = await res.json();
+            if (json.success) {
+              sucEl.style.display = "block";
+              this.reset();
+            } else {
+              throw new Error(json.message || "Submission failed");
+            }
+          } catch (err) {
+            errEl.textContent =
+              "Something went wrong. Please email your brief directly to info@zinajob.com.";
+            errEl.style.display = "block";
+          } finally {
+            btn.textContent = "Send Hiring Brief →";
+            btn.disabled = false;
+          }
+        });
+    </script>
+  </body>
 </html>
