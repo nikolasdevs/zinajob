@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ZinaJob — Talent Recruitment Agency, Lagos</title>
+    <meta name="description" content="ZinaJob is a specialist B2B recruitment agency placing vetted professionals across Tech, Financial Services, FMCG, and Healthcare in Lagos, Nigeria." />
+    <meta property="og:title" content="ZinaJob — Talent Recruitment Agency, Lagos" />
+    <meta property="og:description" content="We connect Lagos businesses with exceptional talent. 48-hour shortlists, no upfront fees." />
+    <meta property="og:type" content="website" />
     <link rel="icon" type="image/png" href="favicon.png" />
     <style>
       *,
@@ -697,6 +701,28 @@
       }
 
       /* ── RESPONSIVE ── */
+      /* ── HAMBURGER ── */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 6px;
+        background: none;
+        border: none;
+      }
+      .hamburger span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--white);
+        border-radius: 2px;
+        transition: all 0.25s;
+      }
+      .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .hamburger.open span:nth-child(2) { opacity: 0; }
+      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
       @media (max-width: 768px) {
         .how-grid,
         .two-col,
@@ -707,8 +733,37 @@
         .form-row {
           grid-template-columns: 1fr;
         }
+        .hamburger {
+          display: flex;
+        }
         .nav-links {
           display: none;
+          position: absolute;
+          top: 64px;
+          left: 0;
+          right: 0;
+          background: var(--navy);
+          flex-direction: column;
+          padding: 16px 5% 20px;
+          gap: 0;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+        .nav-links.open {
+          display: flex;
+        }
+        .nav-links li {
+          border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .nav-links a {
+          display: block;
+          padding: 12px 0;
+          font-size: 1rem;
+        }
+        .nav-cta {
+          margin-top: 8px;
+          text-align: center;
+          border-radius: 6px;
+          padding: 10px 0 !important;
         }
         .hero {
           padding: 60px 5%;
@@ -733,12 +788,15 @@
       <a class="logo" href="#">
         <img src="logo.png" alt="ZinaJob Logo" />
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="#sectors">Sectors</a></li>
         <li><a href="#candidates">For Candidates</a></li>
         <li><a href="#employers">For Employers</a></li>
         <li><a href="#employers" class="nav-cta">Hire Talent →</a></li>
       </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
 
     <!-- HERO -->
@@ -1036,6 +1094,16 @@
               />
             </div>
             <div class="form-group">
+              <label for="cv_sector">Sector <span class="req">*</span></label>
+              <select id="cv_sector" name="Sector" required>
+                <option value="">Select sector</option>
+                <option>Tech &amp; Digital</option>
+                <option>Financial Services</option>
+                <option>FMCG</option>
+                <option>Healthcare</option>
+              </select>
+            </div>
+            <div class="form-group">
               <label for="cv_experience"
                 >Years of Experience <span class="req">*</span></label
               >
@@ -1282,20 +1350,34 @@
       fileZone.addEventListener("drop", (e) => {
         e.preventDefault();
         fileZone.classList.remove("drag");
+        if (e.dataTransfer.files.length) {
+          fileInput.files = e.dataTransfer.files;
+          fileInput.dispatchEvent(new Event("change"));
+        }
       });
 
       // ── Show CV success message if redirected back after submission ──
       if (new URLSearchParams(window.location.search).get("cv") === "sent") {
-        window.addEventListener("DOMContentLoaded", () => {
-          const sucEl = document.getElementById("cvSuccess");
-          if (sucEl) {
-            sucEl.style.display = "block";
-            document
-              .getElementById("candidates")
-              .scrollIntoView({ behavior: "smooth" });
-          }
-        });
+        const sucEl = document.getElementById("cvSuccess");
+        if (sucEl) {
+          sucEl.style.display = "block";
+          document.getElementById("candidates").scrollIntoView({ behavior: "smooth" });
+        }
       }
+
+      // ── Hamburger menu toggle ──────────────────────────────────────
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        navLinks.classList.toggle("open");
+      });
+      navLinks.querySelectorAll("a").forEach((a) => {
+        a.addEventListener("click", () => {
+          hamburger.classList.remove("open");
+          navLinks.classList.remove("open");
+        });
+      });
 
       // ── CV form — validate then submit natively to Formsubmit ────
       document
