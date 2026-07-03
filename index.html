@@ -588,6 +588,240 @@
         border: 1px solid rgba(229, 62, 62, 0.2);
       }
 
+      /* ── EXPAT & IMMIGRATION ── */
+      .expat-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        max-width: 1100px;
+        margin: 0 auto 48px;
+      }
+      .expat-col h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--green);
+        margin-bottom: 12px;
+      }
+      .expat-col > p {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.65);
+        margin-bottom: 24px;
+        line-height: 1.65;
+      }
+      .expat-list {
+        list-style: none;
+      }
+      .expat-list li {
+        display: flex;
+        gap: 10px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+      }
+      .expat-list li::before {
+        content: "→";
+        color: var(--green);
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      .compliance-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .compliance-step {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .cs-num {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        background: rgba(0, 200, 150, 0.15);
+        border: 1px solid rgba(0, 200, 150, 0.3);
+        border-radius: 50%;
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: var(--green);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 0.5px;
+      }
+      .compliance-step strong {
+        display: block;
+        font-size: 0.88rem;
+        color: var(--white);
+        margin-bottom: 2px;
+      }
+      .compliance-step span {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.5;
+      }
+      .epcic-callout {
+        max-width: 1100px;
+        margin: 0 auto;
+        background: rgba(0, 200, 150, 0.07);
+        border: 1px solid rgba(0, 200, 150, 0.25);
+        border-radius: var(--radius);
+        padding: 28px 32px;
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        flex-wrap: wrap;
+      }
+      .epcic-callout > div {
+        flex: 1;
+        min-width: 240px;
+      }
+      .epcic-callout strong {
+        display: block;
+        color: var(--white);
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+      .epcic-callout p {
+        font-size: 0.87rem;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.65;
+        margin: 0;
+      }
+      @media (max-width: 768px) {
+        .expat-grid {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+      }
+
+      /* ── HR CONSULTING ── */
+      .consulting-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        max-width: 1100px;
+        margin: 0 auto 36px;
+      }
+      .consulting-card {
+        background: var(--white);
+        border: 1px solid var(--mid);
+        border-radius: var(--radius);
+        padding: 28px;
+        box-shadow: var(--shadow);
+      }
+      .consulting-card h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 10px;
+      }
+      .consulting-card > p {
+        font-size: 0.87rem;
+        color: var(--muted);
+        line-height: 1.65;
+        margin-bottom: 16px;
+      }
+      .consulting-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .consulting-tags span {
+        background: var(--light);
+        color: var(--navy);
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 0.76rem;
+        font-weight: 600;
+      }
+      .who-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        max-width: 1100px;
+        margin: 0 auto 40px;
+      }
+      .who-card {
+        background: var(--light);
+        border-left: 3px solid var(--green);
+        border-radius: 0 var(--radius) var(--radius) 0;
+        padding: 16px 20px;
+      }
+      .who-card strong {
+        display: block;
+        color: var(--navy);
+        font-size: 0.9rem;
+        margin-bottom: 4px;
+      }
+      .who-card span {
+        font-size: 0.82rem;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      .consulting-cta {
+        max-width: 1100px;
+        margin: 0 auto;
+        background: var(--navy);
+        border-radius: var(--radius);
+        padding: 28px 32px;
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        flex-wrap: wrap;
+      }
+      .consulting-cta > div { flex: 1; min-width: 240px; }
+      .consulting-cta strong {
+        display: block;
+        color: var(--white);
+        font-size: 1rem;
+        margin-bottom: 6px;
+      }
+      .consulting-cta p {
+        font-size: 0.87rem;
+        color: rgba(255, 255, 255, 0.6);
+        margin: 0;
+        line-height: 1.6;
+      }
+      @media (max-width: 768px) {
+        .consulting-grid { grid-template-columns: 1fr; }
+        .who-strip { grid-template-columns: 1fr; }
+      }
+
+      /* ── EMPLOYER BENEFITS ── */
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .benefit-card {
+        background: var(--white);
+        border: 1px solid var(--mid);
+        border-radius: var(--radius);
+        padding: 28px;
+        box-shadow: var(--shadow);
+      }
+      .benefit-stat {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--green);
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+      .benefit-card h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 10px;
+      }
+      .benefit-card p {
+        font-size: 0.87rem;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
       /* ── EMPLOYERS ── */
       .employers {
         background: var(--light);
@@ -701,6 +935,355 @@
       }
 
       /* ── RESPONSIVE ── */
+      /* ── SERVICES ── */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .service-card {
+        background: var(--white);
+        border: 1px solid var(--mid);
+        border-radius: var(--radius);
+        padding: 28px;
+        box-shadow: var(--shadow);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .service-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 36px rgba(10, 37, 64, 0.13);
+      }
+      .service-card.highlight {
+        border-color: var(--green);
+        background: rgba(0, 200, 150, 0.03);
+      }
+      .service-badge {
+        display: inline-block;
+        background: var(--green);
+        color: var(--navy);
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 3px 10px;
+        border-radius: 20px;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .service-icon {
+        font-size: 2rem;
+        margin-bottom: 12px;
+      }
+      .service-card h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 8px;
+      }
+      .service-card p {
+        font-size: 0.88rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      /* ── TESTIMONIALS ── */
+      .testimonials {
+        background: var(--navy);
+      }
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .testimonial-card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius);
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .testimonial-quote {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.75;
+        font-style: italic;
+        flex: 1;
+      }
+      .testimonial-quote::before {
+        content: "\201C";
+        font-size: 2.2rem;
+        color: var(--green);
+        line-height: 0;
+        vertical-align: -0.45em;
+        margin-right: 3px;
+      }
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .t-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--green);
+        color: var(--navy);
+        font-size: 0.85rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .t-avatar.navy {
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--white);
+      }
+      .t-info strong {
+        display: block;
+        color: var(--white);
+        font-size: 0.88rem;
+      }
+      .t-info span {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.78rem;
+      }
+      .t-badge {
+        margin-left: auto;
+        flex-shrink: 0;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 12px;
+      }
+      .t-badge.employer {
+        background: rgba(0, 200, 150, 0.2);
+        color: var(--green);
+      }
+      .t-badge.candidate {
+        background: rgba(255, 107, 53, 0.2);
+        color: var(--orange);
+      }
+
+      /* ── TEAM ── */
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 24px;
+        max-width: 900px;
+      }
+      .team-card {
+        background: var(--white);
+        border: 1px solid var(--mid);
+        border-radius: var(--radius);
+        padding: 28px;
+        text-align: center;
+        box-shadow: var(--shadow);
+      }
+      .team-avatar {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: var(--navy);
+        color: var(--white);
+        font-size: 1.3rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+      }
+      .team-avatar.green {
+        background: var(--green);
+        color: var(--navy);
+      }
+      .team-card h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 4px;
+      }
+      .team-role {
+        font-size: 0.82rem;
+        color: var(--green);
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      .team-card p {
+        font-size: 0.84rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      /* ── INSIGHTS ── */
+      .insights-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+        max-width: 1100px;
+        margin: 0 auto 48px;
+      }
+      .article-card {
+        background: var(--white);
+        border: 1px solid var(--mid);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .article-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 36px rgba(10, 37, 64, 0.13);
+      }
+      .article-top {
+        background: var(--navy);
+        padding: 28px 28px 24px;
+        flex: 1;
+      }
+      .article-cat {
+        display: inline-block;
+        background: rgba(0, 200, 150, 0.18);
+        color: var(--green);
+        border: 1px solid rgba(0, 200, 150, 0.3);
+        padding: 3px 10px;
+        border-radius: 20px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+      .article-top h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.4;
+        margin-bottom: 10px;
+      }
+      .article-top p {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.6;
+      }
+      .article-bottom {
+        padding: 16px 28px;
+        border-top: 1px solid var(--mid);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .article-meta {
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .article-link {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--green);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .article-link:hover {
+        color: var(--navy);
+      }
+      .newsletter-strip {
+        background: rgba(0, 200, 150, 0.07);
+        border: 1px solid rgba(0, 200, 150, 0.2);
+        border-radius: var(--radius);
+        padding: 28px 32px;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        max-width: 1100px;
+        flex-wrap: wrap;
+      }
+      .newsletter-strip .nl-text {
+        flex: 1;
+        min-width: 200px;
+      }
+      .newsletter-strip .nl-text strong {
+        display: block;
+        font-size: 1rem;
+        color: var(--navy);
+        margin-bottom: 4px;
+      }
+      .newsletter-strip .nl-text span {
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+      .nl-form {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .nl-form input {
+        width: 240px;
+        padding: 10px 14px;
+        border: 1.5px solid var(--mid);
+        border-radius: 7px;
+        font-size: 0.88rem;
+        background: var(--white);
+        font-family: inherit;
+      }
+      .nl-form input:focus {
+        outline: none;
+        border-color: var(--green);
+      }
+      .nl-form button {
+        padding: 10px 20px;
+        background: var(--navy);
+        color: var(--white);
+        border: none;
+        border-radius: 7px;
+        font-size: 0.88rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s;
+        font-family: inherit;
+      }
+      .nl-form button:hover {
+        background: #0f3460;
+      }
+
+      /* ── CLIENTS BAR ── */
+      .clients-bar {
+        background: var(--light);
+        padding: 28px 5%;
+        text-align: center;
+        border-bottom: 1px solid var(--mid);
+      }
+      .clients-bar p {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 16px;
+      }
+      .clients-list {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .client-pill {
+        background: var(--white);
+        border: 1px solid var(--mid);
+        border-radius: 6px;
+        padding: 7px 16px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--navy);
+        letter-spacing: 0.2px;
+      }
+
       /* ── HAMBURGER ── */
       .hamburger {
         display: none;
@@ -789,10 +1372,13 @@
         <img src="logo.png" alt="ZinaJob Logo" />
       </a>
       <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
         <li><a href="#sectors">Sectors</a></li>
+        <li><a href="#expat">Expat &amp; Immigration</a></li>
+        <li><a href="#insights">Insights</a></li>
         <li><a href="#candidates">For Candidates</a></li>
         <li><a href="#employers">For Employers</a></li>
-        <li><a href="#employers" class="nav-cta">Hire Talent →</a></li>
+        <li><a href="#employers" class="nav-cta">Free Shortlist →</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -801,29 +1387,111 @@
 
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-tag">Lagos · Nigeria · B2B Recruitment</div>
+      <div class="hero-tag">Lagos · Nigeria · HR &amp; Recruitment Solutions</div>
       <h1>We Place <em>Exceptional Talent</em><br />With Growing Businesses</h1>
       <p>
-        ZinaJob connects Lagos-based companies with vetted professionals across
-        Tech, Oil &amp; Gas, FMCG, Healthcare, and Construction —
-        fast, transparent, and results-driven.
+        ZinaJob delivers end-to-end people solutions — talent recruitment,
+        HR consulting, expatriate management, payroll, and L&amp;D — for
+        businesses operating across Nigeria.
       </p>
       <div class="hero-btns">
-        <a href="#employers" class="btn btn-primary">Hire Talent →</a>
-        <a href="#candidates" class="btn btn-outline">Submit Your CV</a>
+        <a href="#employers" class="btn btn-primary">Find Your Next Hire in 48 Hours →</a>
+        <a href="#candidates" class="btn btn-outline">Get Matched to Top Roles →</a>
       </div>
       <div class="hero-stats">
+        <div class="stat">
+          <strong>200+</strong><span>Successful placements</span>
+        </div>
         <div class="stat">
           <strong>48h</strong><span>Average shortlist turnaround</span>
         </div>
         <div class="stat">
-          <strong>5</strong><span>Specialist sectors</span>
+          <strong>80+</strong><span>Companies served</span>
         </div>
         <div class="stat">
-          <strong>3–5</strong><span>Vetted candidates per role</span>
+          <strong>94%</strong><span>6-month retention rate</span>
         </div>
-        <div class="stat">
-          <strong>Lagos</strong><span>+ Diaspora returnee pipeline</span>
+      </div>
+    </section>
+
+    <!-- CLIENTS BAR -->
+    <div class="clients-bar">
+      <p>Trusted by businesses across Lagos</p>
+      <div class="clients-list">
+        <span class="client-pill">Client Name</span>
+        <span class="client-pill">Client Name</span>
+        <span class="client-pill">Client Name</span>
+        <span class="client-pill">Client Name</span>
+        <span class="client-pill">Client Name</span>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div style="text-align: center; margin-bottom: 48px">
+        <div class="section-label">What We Do</div>
+        <h2>Full-spectrum people solutions</h2>
+        <p class="lead" style="margin: 0 auto">
+          Recruitment is where we started. Today we support the entire employee
+          lifecycle — from hire to compliance to capability.
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🎯</div>
+          <h3>Talent Recruitment</h3>
+          <p>
+            Permanent, contract, and executive search across Tech, Oil &amp; Gas,
+            FMCG, Healthcare, and Construction. 3–5 vetted candidates delivered
+            within 48 hours of brief.
+          </p>
+        </div>
+        <div class="service-card highlight">
+          <div class="service-badge">Key Differentiator</div>
+          <div class="service-icon">⚙️</div>
+          <h3>EPCIC Specialist Recruitment</h3>
+          <p>
+            Dedicated talent mobilisation for EPC and EPCIC project phases —
+            from pre-FEED through commissioning. We understand project timelines,
+            multi-discipline crew requirements, and Nigeria-specific labour
+            compliance.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✈️</div>
+          <h3>Expatriate Recruitment &amp; Immigration</h3>
+          <p>
+            End-to-end expat placement with full immigration compliance support
+            — work permits, STR, CERPAC, and quota management for your Nigeria
+            operations.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏛️</div>
+          <h3>HR Consulting</h3>
+          <p>
+            HR policy development, organisational design, job architecture, and
+            performance management systems tailored to the Nigerian business
+            environment.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💰</div>
+          <h3>Payroll &amp; HR Administration</h3>
+          <p>
+            Fully outsourced payroll processing with statutory compliance
+            (PAYE, pension, NHF) and ongoing HR administration, so your team
+            can focus on the business.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📚</div>
+          <h3>Learning &amp; Development</h3>
+          <p>
+            Tailored training programmes, competency frameworks, and
+            capacity-building initiatives designed to grow your workforce
+            from within.
+          </p>
         </div>
       </div>
     </section>
@@ -1011,25 +1679,130 @@
           </div>
         </div>
       </div>
-      <div
-        style="
-          margin-top: 20px;
-          padding: 16px 20px;
-          background: rgba(0, 200, 150, 0.07);
-          border-left: 3px solid var(--green);
-          border-radius: 0 7px 7px 0;
-          max-width: 620px;
-        "
-      >
-        <p style="font-size: 0.88rem; color: var(--text)">
-          <strong style="color: var(--navy)"
-            >Diaspora returnees welcome.</strong
-          >
-          We maintain a dedicated pipeline of Nigerian professionals returning
-          from the UK, US, Canada and Europe. If you're a returnee or an
-          employer seeking international experience,
-          <a href="#candidates" style="color: var(--green)">get in touch</a>.
-        </p>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+      <div style="text-align: center; margin-bottom: 48px">
+        <div class="section-label" style="color: var(--green)">What People Say</div>
+        <h2 style="color: var(--white)">Results speak for themselves</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">
+            We needed a Senior HSE Supervisor for an offshore project with a
+            two-week mobilisation deadline. ZinaJob came back with four credible
+            candidates within 36 hours. We hired within the week. Genuinely
+            impressive.
+          </p>
+          <div class="testimonial-author">
+            <div class="t-avatar">EO</div>
+            <div class="t-info">
+              <strong>Emeka Okafor</strong>
+              <span>Projects Director · [Company Name]</span>
+            </div>
+            <span class="t-badge employer">Employer</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">
+            After two failed attempts with other agencies, ZinaJob placed our
+            Head of Engineering in three weeks. They understood exactly what we
+            needed — technically and culturally. We've since used them for four
+            more hires.
+          </p>
+          <div class="testimonial-author">
+            <div class="t-avatar navy">TA</div>
+            <div class="t-info">
+              <strong>Tobi Adesanya</strong>
+              <span>CEO · [Company Name]</span>
+            </div>
+            <span class="t-badge employer">Employer</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">
+            I was sceptical about recruiters, but ZinaJob was different. They
+            got back to me within days, prepared me thoroughly for the interview,
+            and negotiated a package 15% above what I was expecting. I'd
+            recommend them without hesitation.
+          </p>
+          <div class="testimonial-author">
+            <div class="t-avatar">AN</div>
+            <div class="t-info">
+              <strong>Amara Nwosu</strong>
+              <span>Senior Software Engineer · Placed 2025</span>
+            </div>
+            <span class="t-badge candidate">Candidate</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSIGHTS -->
+    <section id="insights" style="background: var(--light)">
+      <div class="section-label">Insights</div>
+      <h2>HR &amp; recruitment intelligence</h2>
+      <p class="lead">
+        Practical perspectives on hiring, compliance, and people strategy in
+        the Nigerian market.
+      </p>
+      <div class="insights-grid">
+        <div class="article-card">
+          <div class="article-top">
+            <div class="article-cat">Talent Recruitment</div>
+            <h3>What Top Candidates in Lagos Actually Want in 2025</h3>
+            <p>
+              Salary is no longer the only lever. We share what's driving
+              candidate decisions across Tech, FMCG, and Financial Services —
+              and what employers need to do to compete.
+            </p>
+          </div>
+          <div class="article-bottom">
+            <span class="article-meta">5 min read</span>
+            <a href="#" class="article-link">Read More →</a>
+          </div>
+        </div>
+        <div class="article-card">
+          <div class="article-top">
+            <div class="article-cat">Oil &amp; Gas · EPCIC</div>
+            <h3>How to Build a Multi-Discipline EPCIC Crew from Scratch</h3>
+            <p>
+              From pre-FEED through commissioning, the staffing decisions you
+              make in the first 30 days define your project. Here's the
+              mobilisation framework we use with our EPC clients.
+            </p>
+          </div>
+          <div class="article-bottom">
+            <span class="article-meta">7 min read</span>
+            <a href="#" class="article-link">Read More →</a>
+          </div>
+        </div>
+        <div class="article-card">
+          <div class="article-top">
+            <div class="article-cat">HR Consulting</div>
+            <h3>The Real Cost of a Bad Hire in Nigeria — and How to Avoid It</h3>
+            <p>
+              A mis-hire at mid-level can cost 1.5–2× the annual salary when
+              you account for lost productivity, re-recruitment, and team
+              disruption. Credential verification is the first line of defence.
+            </p>
+          </div>
+          <div class="article-bottom">
+            <span class="article-meta">6 min read</span>
+            <a href="#" class="article-link">Read More →</a>
+          </div>
+        </div>
+      </div>
+      <div class="newsletter-strip">
+        <div class="nl-text">
+          <strong>Get our monthly hiring brief</strong>
+          <span>Market insights, salary benchmarks, and hiring tips — straight to your inbox.</span>
+        </div>
+        <form class="nl-form" id="nlForm">
+          <input type="email" placeholder="your@email.com" required />
+          <button type="submit">Subscribe →</button>
+        </form>
       </div>
     </section>
 
@@ -1052,8 +1825,8 @@
           </ul>
         </div>
         <div class="form-card">
-          <h3>Submit Your CV</h3>
-          <p>Complete the form below. We review every submission personally.</p>
+          <h3>Get In Front of Top Lagos Employers</h3>
+          <p>Complete the form below. We review every submission personally and contact shortlisted candidates within 5 working days.</p>
           <form
             id="cvForm"
             action="https://formsubmit.co/info@zinajob.com"
@@ -1172,7 +1945,7 @@
               </label>
             </div>
             <button type="submit" class="btn btn-primary form-btn">
-              Submit My CV →
+              Find My Next Role →
             </button>
             <div class="alert success" id="cvSuccess">
               ✓ Thank you! We've received your CV and will be in touch within 5
@@ -1184,14 +1957,270 @@
       </div>
     </section>
 
+    <!-- EXPAT & IMMIGRATION -->
+    <section id="expat" style="background: var(--navy)">
+      <div style="text-align: center; margin-bottom: 56px">
+        <div class="section-label">Expatriate &amp; Immigration</div>
+        <h2 style="color: var(--white)">Hire across borders. Stay compliant.</h2>
+        <p style="color: rgba(255,255,255,0.65); max-width: 620px; margin: 0 auto; font-size: 1.05rem; line-height: 1.6">
+          We handle end-to-end talent supply and immigration compliance for
+          international and expatriate hires — so you get the person, not
+          the paperwork.
+        </p>
+      </div>
+      <div class="expat-grid">
+        <div class="expat-col">
+          <h3>Expatriate Recruitment</h3>
+          <p>
+            We source and place international professionals for roles that
+            require overseas expertise — across Oil &amp; Gas, Construction,
+            Tech, and Healthcare.
+          </p>
+          <ul class="expat-list">
+            <li>Upstream, midstream &amp; downstream specialists</li>
+            <li>EPCIC project crews &amp; multi-discipline teams</li>
+            <li>Diaspora returnees — UK · US · Canada · Europe</li>
+            <li>Senior leadership &amp; C-suite international placements</li>
+            <li>Contract, project-based &amp; permanent engagements</li>
+          </ul>
+        </div>
+        <div class="expat-col">
+          <h3>Immigration Compliance Services</h3>
+          <p>
+            Non-compliance in Nigeria carries serious legal and operational
+            risk. We manage the full compliance chain so you stay protected
+            at every stage.
+          </p>
+          <div class="compliance-steps">
+            <div class="compliance-step">
+              <span class="cs-num">01</span>
+              <div>
+                <strong>Work Permit Application</strong>
+                <span>Preparation, submission &amp; follow-through with the Ministry of Interior</span>
+              </div>
+            </div>
+            <div class="compliance-step">
+              <span class="cs-num">02</span>
+              <div>
+                <strong>STR Visa &amp; Regularisation</strong>
+                <span>Subject to Regularisation processing for new expatriate arrivals</span>
+              </div>
+            </div>
+            <div class="compliance-step">
+              <span class="cs-num">03</span>
+              <div>
+                <strong>CERPAC Registration</strong>
+                <span>Combined Expatriate Residence Permit &amp; Aliens Card management</span>
+              </div>
+            </div>
+            <div class="compliance-step">
+              <span class="cs-num">04</span>
+              <div>
+                <strong>Quota Registration</strong>
+                <span>Expatriate quota approval and ongoing headcount management</span>
+              </div>
+            </div>
+            <div class="compliance-step">
+              <span class="cs-num">05</span>
+              <div>
+                <strong>Sector Certifications</strong>
+                <span>DPR, NUPRC &amp; other sector-specific regulatory compliance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="epcic-callout">
+        <div>
+          <strong>⚙️ EPCIC Projects: Where Expatriate Talent Meets Compliance</strong>
+          <p>
+            Large-scale oil &amp; gas construction projects typically require
+            20–60% expatriate staffing at senior technical levels — combined
+            with strict regulatory compliance for every non-Nigerian on site.
+            We are one of the very few agencies in Lagos that handles both:
+            the talent supply and the full immigration compliance chain.
+          </p>
+        </div>
+        <a href="#employers" class="btn btn-primary" style="flex-shrink: 0; white-space: nowrap">
+          Discuss Your Project →
+        </a>
+      </div>
+    </section>
+
+    <!-- HR CONSULTING -->
+    <section id="hr-consulting" style="background: var(--light)">
+      <div class="section-label">HR Consulting</div>
+      <h2>Your people strategy, built right</h2>
+      <p class="lead">
+        Most Lagos businesses are too busy hiring to think strategically about
+        how they hire — or what happens after. We fix that.
+      </p>
+      <div class="who-strip">
+        <div class="who-card">
+          <strong>Growing SMEs</strong>
+          <span>That need proper HR structure without a full-time HR director on payroll</span>
+        </div>
+        <div class="who-card">
+          <strong>Multinationals</strong>
+          <span>Adapting global HR frameworks to the Nigerian market and workforce realities</span>
+        </div>
+        <div class="who-card">
+          <strong>Founders &amp; Scale-ups</strong>
+          <span>Building their first people function from scratch ahead of a growth phase</span>
+        </div>
+      </div>
+      <div class="consulting-grid">
+        <div class="consulting-card">
+          <div class="service-icon">🏗️</div>
+          <h3>Organisational Design &amp; Structure</h3>
+          <p>
+            Right-size your organisation for where you're going, not where
+            you've been. We map roles, reporting lines, grading structures,
+            and spans of control so your business scales without internal chaos.
+          </p>
+          <div class="consulting-tags">
+            <span>Org chart design</span>
+            <span>Job architecture &amp; grading</span>
+            <span>Restructuring support</span>
+            <span>Workforce planning</span>
+          </div>
+        </div>
+        <div class="consulting-card">
+          <div class="service-icon">🎯</div>
+          <h3>Recruitment Strategy &amp; Process Design</h3>
+          <p>
+            Most companies hire reactively and expensively. We help you build
+            a proactive hiring engine — from sourcing strategy to offer
+            management — so the right people find you before your competitors do.
+          </p>
+          <div class="consulting-tags">
+            <span>End-to-end process design</span>
+            <span>Interview frameworks</span>
+            <span>Sourcing channel strategy</span>
+            <span>Onboarding design</span>
+          </div>
+        </div>
+        <div class="consulting-card">
+          <div class="service-icon">📊</div>
+          <h3>Lagos Salary Benchmarking</h3>
+          <p>
+            Are you paying to attract top talent — or losing candidates at
+            offer stage without knowing why? Our market data covers salaries,
+            bonuses, and benefits across all five of our specialist sectors
+            in the Lagos market.
+          </p>
+          <div class="consulting-tags">
+            <span>Role-level salary data</span>
+            <span>Bonus &amp; benefits benchmarks</span>
+            <span>Competitive pay analysis</span>
+            <span>Annual market updates</span>
+          </div>
+        </div>
+        <div class="consulting-card">
+          <div class="service-icon">🌟</div>
+          <h3>Culture &amp; Employer Branding</h3>
+          <p>
+            Your employer brand is your most underused recruiting tool. We
+            help you define what makes your company a destination — and
+            communicate it in a way that attracts the talent you actually
+            want, not just whoever applies.
+          </p>
+          <div class="consulting-tags">
+            <span>EVP design</span>
+            <span>Culture assessment</span>
+            <span>Employer brand messaging</span>
+            <span>Retention risk analysis</span>
+          </div>
+        </div>
+      </div>
+      <div class="consulting-cta">
+        <div>
+          <strong>Not sure which service you need?</strong>
+          <p>
+            Start with a free 30-minute HR diagnostic call. We'll identify
+            your biggest people challenge and recommend the right approach —
+            no commitment required.
+          </p>
+        </div>
+        <a href="#employers" class="btn btn-primary" style="flex-shrink: 0; white-space: nowrap">
+          Book a Free Diagnostic →
+        </a>
+      </div>
+    </section>
+
+    <!-- EMPLOYER BENEFITS -->
+    <section id="why-us">
+      <div style="text-align: center; margin-bottom: 48px">
+        <div class="section-label">The Business Case</div>
+        <h2>Why serious businesses use ZinaJob</h2>
+        <p class="lead" style="margin: 0 auto">
+          Five reasons our clients stop posting job ads and start calling us
+          first.
+        </p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-stat">40%</div>
+          <h3>Faster time-to-hire</h3>
+          <p>
+            Pre-vetted candidates skip the screening noise. Clients typically
+            close hires in 2–3 interview rounds instead of 5+. You spend time
+            evaluating talent — not filtering CVs.
+          </p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-stat">₦0</div>
+          <h3>No upfront cost — pay only on success</h3>
+          <p>
+            No job board spend. No retainer. No internal HR hours lost to
+            screening. You pay our fee only when you successfully hire — and
+            we absorb the cost of every search that doesn't close.
+          </p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-stat">✓</div>
+          <h3>Risk eliminated before the room</h3>
+          <p>
+            Every candidate is credential-verified, employment history
+            validated, references checked, and culture-fit assessed before
+            you see their CV. What we send you is already filtered for
+            quality — not just availability.
+          </p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-stat">🌍</div>
+          <h3>Diaspora returnees as a competitive edge</h3>
+          <p>
+            Nigerian professionals returning from the UK, US, Canada, and
+            Europe bring international standards and cross-market experience —
+            with local context built in. We maintain an active returnee
+            pipeline no job board can access.
+          </p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-stat">⚖️</div>
+          <h3>Immigration compliance, fully managed</h3>
+          <p>
+            Expatriate hires don't have to be complicated. We manage the
+            full compliance chain — work permits, STR, CERPAC, quota
+            registration, and sector-specific certifications — so you stay
+            compliant without the administrative burden.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- EMPLOYERS -->
     <section class="employers" id="employers">
       <div class="two-col">
         <div class="form-card">
-          <h3>Hiring? Talk to us.</h3>
+          <p style="font-size: 0.78rem; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">
+            Join 80+ Lagos companies hiring smarter
+          </p>
+          <h3>Get Your Free Shortlist in 48 Hours</h3>
           <p>
-            Tell us about the role. We'll come back with a shortlist — no
-            upfront fees.
+            Tell us about the role. We'll deliver 3–5 vetted, interview-ready
+            candidates — no upfront cost, no commitment.
           </p>
           <form id="employerForm" novalidate>
             <div class="form-row">
@@ -1261,7 +2290,7 @@
               </label>
             </div>
             <button type="submit" class="btn btn-orange form-btn">
-              Send Hiring Brief →
+              Get Started: Tell Us About Your Vacancy →
             </button>
             <div class="alert success" id="empSuccess">
               ✓ Brief received. A member of our team will contact you within 24
@@ -1285,6 +2314,39 @@
             <li>Confidential search available for senior roles</li>
             <li>Replacement guarantee within the first 3 months</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" style="background: var(--light)">
+      <div class="section-label">Our Team</div>
+      <h2>The people behind ZinaJob</h2>
+      <p class="lead">
+        Senior practitioners — not junior researchers — working your briefs
+        directly.
+      </p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar green">IE</div>
+          <h3>Immanuel Esan</h3>
+          <p class="team-role">Founder &amp; Managing Director</p>
+          <p>
+            [Brief bio — background, sector expertise, years in recruitment/HR.
+            E.g. 10+ years in talent acquisition across Oil &amp; Gas and Tech.]
+          </p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">—</div>
+          <h3>[Team Member Name]</h3>
+          <p class="team-role">[Role Title]</p>
+          <p>[Brief bio — background, specialisation, and what they bring to clients.]</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">—</div>
+          <h3>[Team Member Name]</h3>
+          <p class="team-role">[Role Title]</p>
+          <p>[Brief bio — background, specialisation, and what they bring to clients.]</p>
         </div>
       </div>
     </section>
@@ -1317,9 +2379,10 @@
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
+          <a href="#services">Our Services</a>
           <a href="#sectors">Our Sectors</a>
           <a href="#candidates">Submit a CV</a>
-          <a href="#employers">Hire Talent</a>
+          <a href="#employers">Get a Free Shortlist</a>
           <a href="#how">How It Works</a>
         </div>
         <div class="footer-col">
@@ -1507,7 +2570,7 @@
               "Something went wrong. Please email your brief directly to info@zinajob.com.";
             errEl.style.display = "block";
           } finally {
-            btn.textContent = "Send Hiring Brief →";
+            btn.textContent = "Get Started: Tell Us About Your Vacancy →";
             btn.disabled = false;
           }
         });
