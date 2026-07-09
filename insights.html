@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insights | ZinaJob</title>
+    <meta
+      name="description"
+      content="Practical insights on hiring, compliance, and people strategy for businesses in Lagos and across Nigeria."
+    />
+    <style>
+      :root {
+        --navy: #0a2540;
+        --green: #00c896;
+        --orange: #ff6b35;
+        --light: #f4f7f9;
+        --mid: #e8edf2;
+        --text: #1a2b3c;
+        --muted: #5a7184;
+        --white: #ffffff;
+        --radius: 10px;
+        --shadow: 0 4px 24px rgba(10, 37, 64, 0.08);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        color: var(--text);
+        background: var(--white);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      nav {
+        background: var(--navy);
+        padding: 0 5%;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo img {
+        width: 120px;
+        display: block;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.4rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 0.92rem;
+        font-weight: 500;
+      }
+
+      .nav-links a:hover {
+        color: var(--green);
+      }
+
+      .hero {
+        background: linear-gradient(135deg, var(--navy), #123a5c);
+        color: var(--white);
+        padding: 80px 5% 70px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 4.2vw, 3rem);
+        line-height: 1.15;
+        margin-bottom: 16px;
+        letter-spacing: -0.5px;
+      }
+
+      .hero p {
+        max-width: 720px;
+        margin: 0 auto;
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 1.02rem;
+      }
+
+      .hero .eyebrow {
+        display: inline-block;
+        background: rgba(0, 200, 150, 0.16);
+        color: var(--green);
+        border: 1px solid rgba(0, 200, 150, 0.28);
+        padding: 5px 12px;
+        border-radius: 999px;
+        font-size: 0.74rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+
+      main {
+        padding: 60px 5% 80px;
+      }
+
+      .intro-strip {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 24px;
+        max-width: 1100px;
+        margin: 0 auto 32px;
+      }
+
+      .intro-card,
+      .newsletter-card,
+      .featured-card {
+        background: var(--white);
+        border: 1px solid var(--mid);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      .intro-card {
+        padding: 28px 30px;
+      }
+
+      .intro-card h2 {
+        font-size: 1.25rem;
+        color: var(--navy);
+        margin-bottom: 10px;
+      }
+
+      .intro-card p {
+        font-size: 0.95rem;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .newsletter-card {
+        padding: 28px 30px;
+        background: linear-gradient(135deg, var(--light), #edf4f7);
+      }
+
+      .newsletter-card strong {
+        display: block;
+        color: var(--navy);
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+
+      .newsletter-card p {
+        font-size: 0.9rem;
+        color: var(--muted);
+        line-height: 1.7;
+        margin-bottom: 14px;
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .newsletter-form input {
+        flex: 1;
+        min-width: 180px;
+        border: 1px solid var(--mid);
+        border-radius: 7px;
+        padding: 10px 12px;
+        font: inherit;
+      }
+
+      .newsletter-form button {
+        border: none;
+        border-radius: 7px;
+        padding: 10px 16px;
+        background: var(--navy);
+        color: var(--white);
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .featured-card {
+        max-width: 1100px;
+        margin: 0 auto 32px;
+        overflow: hidden;
+      }
+
+      .featured-top {
+        padding: 30px 32px 20px;
+        background: linear-gradient(135deg, var(--navy), #173b63);
+        color: var(--white);
+      }
+
+      .featured-top .category {
+        display: inline-block;
+        background: rgba(0, 200, 150, 0.16);
+        color: var(--green);
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      .featured-top h2 {
+        font-size: 1.35rem;
+        margin-bottom: 10px;
+      }
+
+      .featured-top p {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.76);
+        line-height: 1.75;
+      }
+
+      .featured-bottom {
+        padding: 16px 32px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .featured-bottom a {
+        color: var(--green);
+        font-weight: 700;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .card {
+        background: var(--white);
+        border: 1px solid var(--mid);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 26px rgba(10, 37, 64, 0.1);
+      }
+
+      .card-top {
+        padding: 24px 24px 18px;
+        background: var(--light);
+      }
+
+      .category {
+        display: inline-block;
+        background: rgba(0, 200, 150, 0.14);
+        color: #007a5e;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+
+      .card h2 {
+        font-size: 1.08rem;
+        color: var(--navy);
+        margin-bottom: 8px;
+      }
+
+      .card p {
+        font-size: 0.9rem;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .card-bottom {
+        padding: 16px 24px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+
+      .card-bottom a {
+        color: var(--green);
+        font-weight: 700;
+      }
+
+      .article-layout {
+        max-width: 1100px;
+        margin: 0 auto 36px;
+        display: grid;
+        grid-template-columns: 1.5fr 0.7fr;
+        gap: 24px;
+      }
+
+      .article-main {
+        background: var(--white);
+        border: 1px solid var(--mid);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 32px;
+      }
+
+      .article-main h3 {
+        font-size: 1.15rem;
+        color: var(--navy);
+        margin-bottom: 10px;
+      }
+
+      .article-main p {
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.8;
+        margin-bottom: 14px;
+      }
+
+      .article-side {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .side-card {
+        background: var(--light);
+        border: 1px solid var(--mid);
+        border-radius: var(--radius);
+        padding: 20px;
+      }
+
+      .side-card h4 {
+        font-size: 0.95rem;
+        color: var(--navy);
+        margin-bottom: 8px;
+      }
+
+      .side-card p {
+        font-size: 0.86rem;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      footer {
+        background: #060f1a;
+        color: rgba(255, 255, 255, 0.65);
+        padding: 30px 5%;
+        text-align: center;
+        font-size: 0.86rem;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .intro-strip,
+        .article-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="logo" href="index.html">
+        <img src="logo.png" alt="ZinaJob logo" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#sectors">Sectors</a></li>
+        <li><a href="index.html#insights">Insights</a></li>
+        <li><a href="index.html#candidates">Candidates</a></li>
+        <li><a href="index.html#employers">Employers</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div class="eyebrow">Editorial insights</div>
+      <h1>Insights for smarter hiring and stronger teams</h1>
+      <p>
+        Practical perspectives on recruitment, workforce planning, compliance,
+        and people strategy for businesses operating in Lagos and across Nigeria.
+      </p>
+    </section>
+
+    <main>
+      <div class="intro-strip">
+        <div class="intro-card">
+          <h2>Clear thinking for hiring decisions that matter</h2>
+          <p>
+            Our writing is shaped by the realities of the market: speed, risk,
+            compliance, retention, and the practical challenge of building strong
+            teams without unnecessary noise.
+          </p>
+        </div>
+        <div class="newsletter-card">
+          <strong>Receive our monthly brief</strong>
+          <p>Market updates, hiring guidance, and salary context delivered directly to your inbox.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="your@email.com" />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="article-layout">
+        <article class="article-main">
+          <span class="category">Featured insight</span>
+          <h3>Hiring in a changing market requires more than speed</h3>
+          <p>
+            The strongest hiring decisions are rarely made in haste. They come from
+            good preparation, strong role clarity, and a realistic view of what the
+            role will require in the months ahead.
+          </p>
+          <p>
+            For growing businesses, the cost of a rushed decision is often higher than
+            the cost of a slower search. The right hire improves delivery, protects team
+            stability, and reduces avoidable churn.
+          </p>
+        </article>
+        <div class="article-side">
+          <div class="side-card">
+            <h4>Why it matters</h4>
+            <p>Good hiring processes reduce risk and improve retention, especially in technical and operational roles.</p>
+          </div>
+          <div class="side-card">
+            <h4>What we advise</h4>
+            <p>Be clear on the brief, verify experience carefully, and align expectations before interviews begin.</p>
+          </div>
+        </div>
+      </div>
+
+      <article class="featured-card">
+        <div class="featured-top">
+          <span class="category">Featured</span>
+          <h2>Why the right hire now matters more than ever in a changing market</h2>
+          <p>
+            In a competitive environment, hiring slowly can be just as costly as
+            hiring badly. Our perspective is simple: clarity, preparation, and
+            fit should guide every decision.
+          </p>
+        </div>
+        <div class="featured-bottom">
+          <span>8 min read</span>
+          <a href="#">Read feature →</a>
+        </div>
+      </article>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-top">
+            <span class="category">Talent Recruitment</span>
+            <h2>What top candidates in Lagos want in 2025</h2>
+            <p>
+              Salary matters, but candidates are also looking for clarity,
+              growth, stability, and a stronger sense of purpose in their next role.
+            </p>
+          </div>
+          <div class="card-bottom">
+            <span>5 min read</span>
+            <a href="#">Read article →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <span class="category">Oil &amp; Gas · EPCIC</span>
+            <h2>How to build a multi-discipline EPCIC crew from scratch</h2>
+            <p>
+              Project hiring requires careful sequencing, strong compliance,
+              and a clear mobilisation strategy from the first 30 days onward.
+            </p>
+          </div>
+          <div class="card-bottom">
+            <span>7 min read</span>
+            <a href="#">Read article →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <span class="category">HR Consulting</span>
+            <h2>The real cost of a bad hire in Nigeria</h2>
+            <p>
+              A mis-hire can disrupt delivery, increase turnover risk, and create
+              hidden costs that extend far beyond the initial salary.
+            </p>
+          </div>
+          <div class="card-bottom">
+            <span>6 min read</span>
+            <a href="#">Read article →</a>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer>
+      © 2026 ZinaJob. Specialist recruitment and HR advisory for Lagos businesses.
+    </footer>
+  </body>
+</html>
