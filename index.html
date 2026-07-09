@@ -44,6 +44,29 @@
         scroll-behavior: smooth;
       }
 
+      .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+
       body {
         font-family:
           "Segoe UI",
@@ -53,6 +76,8 @@
         color: var(--text);
         background: var(--white);
         line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
       }
 
       /* ── NAV ── */
@@ -179,10 +204,10 @@
         font-size: clamp(2rem, 5vw, 3.4rem);
         font-weight: 800;
         color: var(--white);
-        line-height: 1.15;
-        max-width: 760px;
+        line-height: 1.12;
+        max-width: 780px;
         margin: 0 auto 20px;
-        letter-spacing: -0.5px;
+        letter-spacing: -0.6px;
       }
       .hero h1 em {
         color: var(--green);
@@ -205,8 +230,8 @@
 
       .btn {
         display: inline-block;
-        padding: 13px 30px;
-        border-radius: 8px;
+        padding: 13px 28px;
+        border-radius: 999px;
         font-weight: 700;
         font-size: 0.95rem;
         cursor: pointer;
@@ -221,6 +246,7 @@
       .btn-primary:hover {
         background: #00e8ae;
         transform: translateY(-1px);
+        box-shadow: 0 8px 18px rgba(0, 200, 150, 0.16);
       }
       .btn-outline {
         background: transparent;
@@ -230,6 +256,7 @@
       .btn-outline:hover {
         border-color: var(--white);
         transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.08);
       }
       .btn-orange {
         background: var(--orange);
@@ -246,6 +273,13 @@
         justify-content: center;
         margin-top: 52px;
         flex-wrap: wrap;
+      }
+      .hero-note {
+        margin-top: 20px;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.95rem;
+        font-weight: 600;
+        letter-spacing: 0.2px;
       }
       .stat {
         text-align: center;
@@ -425,7 +459,7 @@
         border: 1px solid var(--mid);
         border-radius: var(--radius);
         padding: 36px;
-        box-shadow: var(--shadow);
+        box-shadow: 0 10px 30px rgba(10, 37, 64, 0.08);
       }
       .form-card h3 {
         font-size: 1.15rem;
@@ -817,7 +851,7 @@
         border: 1px solid var(--mid);
         border-radius: var(--radius);
         padding: 28px;
-        box-shadow: var(--shadow);
+        box-shadow: 0 8px 24px rgba(10, 37, 64, 0.06);
       }
       .benefit-stat {
         font-size: 2.2rem;
@@ -964,14 +998,14 @@
         border: 1px solid var(--mid);
         border-radius: var(--radius);
         padding: 28px;
-        box-shadow: var(--shadow);
+        box-shadow: 0 8px 24px rgba(10, 37, 64, 0.06);
         transition:
           transform 0.2s,
           box-shadow 0.2s;
       }
       .service-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 36px rgba(10, 37, 64, 0.13);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(10, 37, 64, 0.1);
       }
       .service-card.highlight {
         border-color: var(--green);
@@ -1136,6 +1170,67 @@
         font-size: 0.84rem;
         color: var(--muted);
         line-height: 1.6;
+      }
+
+      .founder-strip {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 32px;
+        max-width: 1100px;
+        margin: 0 auto 40px;
+        align-items: center;
+      }
+      .founder-card {
+        background: linear-gradient(135deg, var(--navy), #123a5c);
+        color: var(--white);
+        border-radius: var(--radius);
+        padding: 32px;
+        box-shadow: var(--shadow);
+      }
+      .founder-card h3 {
+        font-size: 1.2rem;
+        font-weight: 800;
+        margin-bottom: 12px;
+      }
+      .founder-card p {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.7;
+        margin-bottom: 14px;
+      }
+      .founder-pill {
+        display: inline-block;
+        background: rgba(0, 200, 150, 0.16);
+        color: var(--green);
+        border: 1px solid rgba(0, 200, 150, 0.28);
+        padding: 5px 12px;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+      }
+      .founder-points {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .founder-point {
+        background: var(--light);
+        border-left: 3px solid var(--green);
+        padding: 16px 18px;
+        border-radius: 0 var(--radius) var(--radius) 0;
+      }
+      .founder-point strong {
+        display: block;
+        color: var(--navy);
+        font-size: 0.95rem;
+        margin-bottom: 4px;
+      }
+      .founder-point span {
+        font-size: 0.84rem;
+        color: var(--muted);
+        line-height: 1.55;
       }
 
       /* ── INSIGHTS ── */
@@ -1412,22 +1507,25 @@
     </nav>
 
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero reveal">
       <div class="hero-tag">
-        Lagos · Nigeria · HR &amp; Recruitment Solutions
+        Lagos · Nigeria · Specialist Recruitment &amp; HR Advisory
       </div>
-      <h1>We Place <em>Exceptional Talent</em><br />With Growing Businesses</h1>
+      <h1>
+        Recruiting the right people for growth, stability, and long-term
+        performance.
+      </h1>
       <p>
-        ZinaJob delivers end-to-end people solutions — talent recruitment, HR
-        consulting, expatriate management, payroll, and L&amp;D — for businesses
-        operating across Nigeria.
+        ZinaJob supports Lagos businesses with thoughtful recruitment, HR
+        advisory, and expatriate workforce solutions built around careful
+        screening and practical delivery.
       </p>
       <div class="hero-btns">
         <a href="#employers" class="btn btn-primary"
-          >Find Your Next Hire in 48 Hours →</a
+          >Book a Free Shortlist Call →</a
         >
         <a href="#candidates" class="btn btn-outline"
-          >Get Matched to Top Roles →</a
+          >Upload Your CV &amp; Get Matched →</a
         >
       </div>
       <div class="hero-stats">
@@ -1444,28 +1542,32 @@
           <strong>94%</strong><span>6-month retention rate</span>
         </div>
       </div>
+      <div class="hero-note">
+        Founder-led · Sector specialists · Compliance-aware from day one
+      </div>
     </section>
 
     <!-- CLIENTS BAR -->
     <div class="clients-bar">
-      <p>Trusted by businesses across Lagos</p>
+      <p>Trusted by founders, HR teams, and project leaders across Lagos</p>
       <div class="clients-list">
-        <span class="client-pill">Client Name</span>
-        <span class="client-pill">Client Name</span>
-        <span class="client-pill">Client Name</span>
-        <span class="client-pill">Client Name</span>
-        <span class="client-pill">Client Name</span>
+        <span class="client-pill">Tech &amp; Digital</span>
+        <span class="client-pill">Energy &amp; Infrastructure</span>
+        <span class="client-pill">FMCG</span>
+        <span class="client-pill">Healthcare</span>
+        <span class="client-pill">Construction</span>
       </div>
     </div>
 
     <!-- SERVICES -->
-    <section id="services">
+    <section id="services" class="reveal">
       <div style="text-align: center; margin-bottom: 48px">
         <div class="section-label">What We Do</div>
         <h2>Full-spectrum people solutions</h2>
         <p class="lead" style="margin: 0 auto">
-          Recruitment is where we started. Today we support the entire employee
-          lifecycle — from hire to compliance to capability.
+          What began as talent placement now extends across the full people
+          lifecycle — from hiring and onboarding to compliance and workforce
+          development.
         </p>
       </div>
       <div class="services-grid">
@@ -1528,8 +1630,72 @@
       </div>
     </section>
 
+    <!-- WHY ZINAJOB -->
+    <section style="padding-top: 0">
+      <div class="benefits-grid" style="max-width: 1100px">
+        <div class="benefit-card">
+          <div class="benefit-stat">⚡</div>
+          <h3>Speed without the noise</h3>
+          <p>
+            We short-list quickly and send only credible options, so your team
+            spends time interviewing talent instead of sorting CVs.
+          </p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-stat">🧠</div>
+          <h3>Specialist expertise</h3>
+          <p>
+            Our recruiters understand the realities of Nigeria’s technical,
+            operational, and compliance-heavy sectors.
+          </p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-stat">🤝</div>
+          <h3>Support beyond the hire</h3>
+          <p>
+            From onboarding to immigration and HR advisory, we help clients stay
+            protected long after the first interview.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUNDERS / CREDIBILITY -->
+    <section style="background: var(--white); padding-top: 0" class="reveal">
+      <div class="founder-strip">
+        <div class="founder-card">
+          <div class="founder-pill">Founder-led expertise</div>
+          <h3>Built on experience, judgement, and long-term client trust.</h3>
+          <p>
+            ZinaJob is led by professionals who understand that hiring is not
+            simply a transaction. It is a business decision that affects team
+            performance, culture, and growth.
+          </p>
+          <p>
+            Our approach is deliberate and discreet, with careful screening,
+            practical guidance, and a strong focus on lasting fit rather than
+            volume.
+          </p>
+        </div>
+        <div class="founder-points">
+          <div class="founder-point">
+            <strong>Sector-specific search</strong>
+            <span>We work with clients in tech, energy, FMCG, healthcare, and construction.</span>
+          </div>
+          <div class="founder-point">
+            <strong>Practical HR support</strong>
+            <span>Recruitment, onboarding, compliance, and workforce planning under one roof.</span>
+          </div>
+          <div class="founder-point">
+            <strong>Long-term fit over quick fixes</strong>
+            <span>We prioritise retention, fit, and business alignment over volume.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- HOW IT WORKS -->
-    <section class="how" id="how">
+    <section class="how reveal" id="how">
       <div style="text-align: center; margin-bottom: 48px">
         <div class="section-label">How It Works</div>
         <h2>Simple process. Serious results.</h2>
@@ -1733,7 +1899,7 @@
             <div class="t-avatar">EO</div>
             <div class="t-info">
               <strong>Emeka Okafor</strong>
-              <span>Projects Director · [Company Name]</span>
+              <span>Projects Director · Confidential Client</span>
             </div>
             <span class="t-badge employer">Employer</span>
           </div>
@@ -1749,7 +1915,7 @@
             <div class="t-avatar navy">TA</div>
             <div class="t-info">
               <strong>Tobi Adesanya</strong>
-              <span>CEO · [Company Name]</span>
+              <span>CEO · Confidential Client</span>
             </div>
             <span class="t-badge employer">Employer</span>
           </div>
@@ -1983,7 +2149,7 @@
                 I consent to ZinaJob storing and processing my personal data for
                 recruitment purposes. I understand my data will not be shared
                 with third parties without my consent.
-                <a href="#">Privacy Policy</a>.
+                <a href="mailto:info@zinajob.com?subject=Privacy%20Policy%20Request">Privacy Policy</a>.
               </label>
             </div>
             <button type="submit" class="btn btn-primary form-btn">
@@ -2240,8 +2406,8 @@
         <div class="section-label">The Business Case</div>
         <h2>Why serious businesses use ZinaJob</h2>
         <p class="lead" style="margin: 0 auto">
-          Five reasons our clients stop posting job ads and start calling us
-          first.
+          Five reasons growing businesses choose ZinaJob over reactive hiring
+          and generic recruitment firms.
         </p>
       </div>
       <div class="benefits-grid">
@@ -2381,7 +2547,7 @@
               <input type="checkbox" id="e_consent" required />
               <label for="e_consent">
                 I agree to ZinaJob contacting me about this vacancy and storing
-                my enquiry details. <a href="#">Privacy Policy</a>.
+                my enquiry details. <a href="mailto:info@zinajob.com?subject=Privacy%20Policy%20Request">Privacy Policy</a>.
               </label>
             </div>
             <button type="submit" class="btn btn-orange form-btn">
@@ -2483,19 +2649,34 @@
           <h4>Contact</h4>
           <a href="mailto:info@zinajob.com">info@zinajob.com</a>
           <a href="tel:+2349016769751">+234 (0) 901 676 9751</a>
-          <a href="#">Lagos, Nigeria</a>
-          <a href="#">Privacy Policy</a>
+          <a href="https://maps.google.com/?q=Lagos,Nigeria">Lagos, Nigeria</a>
+          <a href="mailto:info@zinajob.com?subject=Privacy%20Policy%20Request">Privacy Policy</a>
         </div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 ZinaJob. All rights reserved.</span>
         <span
-          ><a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a></span
+          ><a href="mailto:info@zinajob.com?subject=Privacy%20Policy%20Request">Privacy Policy</a> · <a href="mailto:info@zinajob.com?subject=Terms%20of%20Use%20Request">Terms of Use</a></span
         >
       </div>
     </footer>
 
     <script>
+      const revealItems = document.querySelectorAll(".reveal");
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+
       const W3F_KEY = "ec4ad484-d46a-4657-9067-b3c734a13e11";
       const W3F_URL = "https://api.web3forms.com/submit";
 
